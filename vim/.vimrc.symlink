@@ -1,0 +1,6 @@
+syntax on
+set autoindent
+set number
+set nopaste
+set guioptions+=a
+"set mouse=ra

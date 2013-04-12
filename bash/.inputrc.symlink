@@ -1,0 +1,28 @@
+
+# Case insensitive completion for filenames
+set completion-ignore-case on
+
+# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+set match-hidden-files off
+
+# Show all autocomplete results at once
+set page-completions off
+
+# If there are more than 200 possible completions for a word, ask to show them all
+set completion-query-items 200
+
+# Show / at the end of symlinks directories
+set mark-symlinked-directories on
+
+# Do not type twice tab for showing ambiguous
+set show-all-if-ambiguous on
+
+# Search history with Ctrl Up and Shift Down
+"\e[1;5A": history-search-backward
+"\e[1;5B": history-search-forward
+
+# Use Alt/Meta+Delete to delete the preceding word.
+"\e[3;3~": kill-word
+
+# Include system wide settings which are ignored by default if one has their own .inputrc
+$include /etc/inputrc

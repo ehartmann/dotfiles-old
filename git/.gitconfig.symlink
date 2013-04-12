@@ -1,0 +1,45 @@
+[user]
+	name = Eric Hartmann
+	email = hartmann.eric@gmail.com
+[giggle]
+	compact-mode = false
+	main-window-maximized = false
+	main-window-geometry = 989x1000+20+24
+	main-window-view = HistoryView
+	history-view-vpane-position = 617
+	file-view-vpane-position = 909
+[core]
+#	autocrlf = input
+[github]
+	user = ehartmann
+	email = hartmann.eric@gmail.com
+[url "git://anongit.kde.org/"]
+	insteadOf = kde:
+	insteadof = kde://
+	insteadof = kde://
+	insteadof = kde://
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:
+[url "ssh://git@git.kde.org/"]
+	pushinsteadof = kde://
+	pushinsteadof = kde://
+	pushinsteadof = kde://
+[color]
+	ui = auto
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+#	ls = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short
+	st = status
+	ci = commit -v
+	co = checkout
+	br = branch
+	st = status -sb
+	ds = diff --staged
+	co = checkout
+	standup = log --since '1 day ago' --oneline --author hartmann.eric@gmail.com
+	graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	undo = reset --soft HEAD^
+	amend = commit --amend -C HEAD
+[push]
+	default = simple
