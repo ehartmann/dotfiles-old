@@ -121,15 +121,6 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -152,7 +143,7 @@ else
     HostColor='\[\033[01;32m\]'
 fi
 
-PS1=$Black'\t ${debian_chroot:+($debian_chroot)}'$HostColor'\u@\h'$Color_Off':'$BIBlue'\w'$Color_Off'$(git branch &>/dev/null;\
+PS1=$White'\t ${debian_chroot:+($debian_chroot)}'$HostColor'\u@\h'$Color_Off':'$BIBlue'\w'$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [ "$?" -eq "0" ]; then \
@@ -163,5 +154,14 @@ if [ $? -eq 0 ]; then \
     echo "'$IRed'"$(__git_ps1 "{%s}"); \
   fi)"; \
 fi)'$Color_Off'\$ '
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
 
 eval "$(~/.rbenv/bin/rbenv init -)"
