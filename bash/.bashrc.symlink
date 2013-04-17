@@ -164,4 +164,3 @@ xterm*|rxvt*)
     ;;
 esac
 
-eval "$(~/.rbenv/bin/rbenv init -)"
