@@ -8,7 +8,7 @@
 #    fi
 #fi
 
-ANT_HOME=/opt/apache-ant-1.8.4/
+ANT_HOME=/opt/apache-ant-1.9.0/
 ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export ANT_HOME ANT_OPTS
 
@@ -24,11 +24,9 @@ JAVA_HOME=/opt/jdk7
 JDK_HOME=/opt/jdk7
 export JAVA_HOME JDK_HOME
 
-#RUBYOPT=rubygems
-#export RUBYOPT 
-
 export RUBYMINE_JDK=/opt/jdk7/
 export IDEA_JDK=/opt/jdk7/
-export WEBIDE_JDK=/opt/jdk7/
 
-export PATH=~/bin:~/.rbenv/bin:/home/eric/.gem/ruby/1.9.1/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$M3_HOME/bin:$PATH
+export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$M3_HOME/bin:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
