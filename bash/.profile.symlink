@@ -29,4 +29,3 @@ export IDEA_JDK=/opt/jdk7/
 
 export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$M3_HOME/bin:$PATH
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
