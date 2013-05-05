@@ -1,15 +1,24 @@
 #!/bin/bash
+platform=`uname`
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+  eval "`dircolors -b`"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+if [[ "$platform" == "Darwin" ]]; then
+	alias ls='ls -G'
+	alias java6='export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home'
+  alias java7='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home'
+  alias java8='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home'
+  alias rvm-restart='rvm_reload_flag=1 source '\''/Users/eric/.rvm/scripts/rvm'\'''
 fi
 
 # some more ls aliases
@@ -19,13 +28,11 @@ alias l='ls -CF'
 
 if $(xsel &>/dev/null)
 then
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
 fi
 
 alias cppwd='echo -n $PWD | pbcopy'
 
 alias mount='mount | column -t'
 
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'

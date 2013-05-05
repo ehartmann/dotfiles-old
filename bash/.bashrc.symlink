@@ -97,6 +97,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f /usr/local/opt/bash-completion/etc/bash_completion ]; then
+  . /usr/local/opt/bash-completion/etc/bash_completion  
+fi
+
+if [[ "$platform" == "Darwin" ]]; then
+    export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:/usr/local/mysql/lib/"
+    # Finished adapting your PATH environment variable for use with MacPorts.
+    export CLICOLOR=1
+    #export LSCOLORS=GxFxCxDxBxegedabagaced
+fi
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
