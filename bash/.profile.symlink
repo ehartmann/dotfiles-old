@@ -20,12 +20,15 @@ MAVEN_OPTS_CH="-Xmx784M -Xms128M -Djavax.net.ssl.trustStore=/home/eric/Dropbox/C
 MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export MAVEN_DEBUG_OPTS MAVEN_HOME MAVEN_OPTS M3_HOME
 
-JAVA_HOME=/opt/jdk7
-JDK_HOME=/opt/jdk7
-export JAVA_HOME JDK_HOME
-
-export RUBYMINE_JDK=/opt/jdk7/
-export IDEA_JDK=/opt/jdk7/
+if [[ "$platform" == "Darwin" ]]; then
+    JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+else
+    JAVA_HOME=/opt/jdk7
+    JDK_HOME=/opt/jdk7
+    export JAVA_HOME JDK_HOME
+    export RUBYMINE_JDK=/opt/jdk7/
+    export IDEA_JDK=/opt/jdk7/
+fi
 
 export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$M3_HOME/bin:$PATH
 
