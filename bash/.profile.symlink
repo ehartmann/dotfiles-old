@@ -30,5 +30,5 @@ else
     export IDEA_JDK=/opt/jdk7/
 fi
 
-export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$M3_HOME/bin:$PATH
+export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$M3_HOME/bin:/usr/local/bin:$PATH
 
