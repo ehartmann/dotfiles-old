@@ -171,7 +171,8 @@ fi)'$Color_Off'\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+linux|xterm*|rxvt*)
+    # linux is for iTerm2
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
     show_command_in_title_bar()
     {
@@ -195,3 +196,5 @@ xterm*|rxvt*)
 esac
 
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
