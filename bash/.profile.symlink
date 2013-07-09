@@ -32,4 +32,3 @@ else
 fi
 
 export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/bin:$PATH
-
