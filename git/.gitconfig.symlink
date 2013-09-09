@@ -51,3 +51,5 @@
 	amend = commit --amend -C HEAD
 [push]
 	default = simple
+[help]
+	autocorrect = 25

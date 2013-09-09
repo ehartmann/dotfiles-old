@@ -35,4 +35,4 @@ fi
 alias cppwd='echo -n $PWD | pbcopy'
 
 alias mount='mount | column -t'
-
+alias bd=". bd -s"

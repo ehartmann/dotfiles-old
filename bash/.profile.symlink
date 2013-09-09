@@ -9,7 +9,7 @@
 #fi
 platform=`uname`
 
-ANT_HOME=/opt/apache-ant-1.9.0/
+ANT_HOME=/opt/apache-ant-1.9.2/
 ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export ANT_HOME ANT_OPTS
 
