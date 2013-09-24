@@ -9,7 +9,7 @@
 #fi
 platform=`uname`
 
-ANT_HOME=/opt/apache-ant-1.9.0/
+ANT_HOME=/opt/apache-ant-1.9.2/
 ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export ANT_HOME ANT_OPTS
 
@@ -31,8 +31,7 @@ else
     export IDEA_JDK=/opt/jdk7/
 fi
 
-export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/bin:$PATH
-
+export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/bin:$HOME/.jenv/bin:$PATH
 
 #THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
 [[ -s "/Users/eric/.jenv/bin/jenv-init.sh" ]] && source "/Users/eric/.jenv/bin/jenv-init.sh" && source "/Users/eric/.jenv/commands/completion.sh"
