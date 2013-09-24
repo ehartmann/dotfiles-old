@@ -33,3 +33,6 @@ fi
 
 export PATH=~/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/bin:$PATH
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
+[[ -s "/Users/eric/.jenv/bin/jenv-init.sh" ]] && source "/Users/eric/.jenv/bin/jenv-init.sh" && source "/Users/eric/.jenv/commands/completion.sh"
