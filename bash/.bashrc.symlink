@@ -3,9 +3,8 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
 
-[ -z "$MAVEN_HOME" ] && source ~/.profile
+[[ $- != *i* ]] && return
 
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset
@@ -193,8 +192,3 @@ linux|xterm*|rxvt*)
 *)
     ;;
 esac
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-#THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
-[[ -s "/Users/eric/.jenv/bin/jenv-init.sh" ]] && source "/Users/eric/.jenv/bin/jenv-init.sh" && source "/Users/eric/.jenv/commands/completion.sh"
