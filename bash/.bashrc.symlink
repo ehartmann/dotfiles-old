@@ -194,3 +194,6 @@ linux|xterm*|rxvt*)
 esac
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+#THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
+[[ -s "/home/eric/.jenv/bin/jenv-init.sh" ]] && source "/home/eric/.jenv/bin/jenv-init.sh" && source "/home/eric/.jenv/commands/completion.sh"

@@ -37,7 +37,6 @@
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-#	ls = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short
 	st = status
 	ci = commit -v
 	co = checkout
@@ -49,6 +48,7 @@
 	graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
 	undo = reset --soft HEAD^
 	amend = commit --amend -C HEAD
+	unstage = reset HEAD
 [push]
 	default = simple
 [help]
