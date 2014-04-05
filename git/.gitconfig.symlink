@@ -53,3 +53,7 @@
 	default = simple
 [help]
 	autocorrect = 25
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = preserve

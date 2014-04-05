@@ -37,6 +37,7 @@ transplant =
 #checkfiles = ~/.hgext/checkfiles.py
 #hgattic = ~/.hgext/attic.py
 #hgsubversion = ~/.hgext/hgsubversion/hgsubversion 
+prompt = ~/.hgext/hg-prompt/prompt.py
 
 #[decode]
 #** = cleverdecode:
