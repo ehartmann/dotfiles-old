@@ -17,8 +17,8 @@ fi
 [ ! -d "${HOME}/.rbenv" ] && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 [ ! -d "${HOME}/.rbenv/plugins/ruby-build" ] && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-vars" ] && git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
-[ ! -d "${HOME}/.rbenv/plugins/rbenv-each" ] && git clone https://github.com/chriseppstein/rbenv-each.git
-[ ! -d "${HOME}/.rbenv/plugins/rbenv-env" ] && git clone https://github.com/ianheggie/rbenv-env.git 
+[ ! -d "${HOME}/.rbenv/plugins/rbenv-each" ] && git clone https://github.com/chriseppstein/rbenv-each.git ~/.rbenv/plugins/rbenv-each
+[ ! -d "${HOME}/.rbenv/plugins/rbenv-env" ] && git clone https://github.com/ianheggie/rbenv-env.git ~/.rbenv/plugins/rbenv-env
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-bundle-exec" ] && git clone https://github.com/maljub01/rbenv-bundle-exec.git ~/.rbenv/plugins/rbenv-bundle-exec
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-default-gems" ] && git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-gem-rehash" ] && git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
