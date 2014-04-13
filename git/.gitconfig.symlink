@@ -57,3 +57,5 @@
 	autosetuprebase = always
 [pull]
 	rebase = preserve
+[rebase]
+	autosquash = true
