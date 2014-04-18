@@ -93,13 +93,13 @@ export PATH=$HOME/.rbenv/bin:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-    export PATH=$HOME/bin/mac
+    export PATH=$HOME/bin/mac:$PATH
 else
     export JAVA_HOME=/opt/jdk8
     export JDK_HOME=/opt/jdk8
     export RUBYMINE_JDK=/opt/jdk8/
     export IDEA_JDK=/opt/jdk8/
-    export PATH=$HOME/bin/linux
+    export PATH=$HOME/bin/linux:$PATH
 fi
 
 
