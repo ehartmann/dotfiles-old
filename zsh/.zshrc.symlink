@@ -47,7 +47,7 @@ ZSH_THEME="eric"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ant capistrano command-not-found docker git-extras git-flow github gitignore git-prompt history knife knife_ssh mercurial mvn node npm rails rake ruby rsync sublime sudo svn terminitor vagrant)
+plugins=(git ant capistrano command-not-found docker git-extras git-flow github gitignore git-prompt history knife knife_ssh mercurial mvn node npm rails rake rbenv ruby rsync sublime sudo svn terminitor vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,24 +82,26 @@ platform=`uname`
 export ANT_HOME=/opt/apache-ant-1.9.2/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 
-M2_HOME=/opt/apache-maven-2.2.1/
-M3_HOME=/opt/apache-maven-3.0.5/
-MAVEN_HOME=$M3_HOME
-MAVEN_OPTS="-Xmx784M -Xms128M"
-MAVEN_OPTS_CH="-Xmx784M -Xms128M -Djavax.net.ssl.trustStore=/home/eric/Dropbox/Codehaus/keystore -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.certStore=/home/eric/Dropbox/Codehaus/keystore -Djavax.net.ssl.certStorePassword=changeit"
-MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
-export MAVEN_DEBUG_OPTS MAVEN_HOME MAVEN_OPTS M3_HOME
+export M2_HOME=/opt/apache-maven-2.2.1/
+export M3_HOME=/opt/apache-maven-3.0.5/
+export MAVEN_HOME=$M3_HOME
+export MAVEN_OPTS="-Xmx784M -Xms128M"
+export MAVEN_OPTS_CH="-Xmx784M -Xms128M -Djavax.net.ssl.trustStore=/home/eric/Dropbox/Codehaus/keystore -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.certStore=/home/eric/Dropbox/Codehaus/keystore -Djavax.net.ssl.certStorePassword=changeit"
+export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
+
+export PATH=$HOME/.rbenv/bin:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:$PATH
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+    export PATH=$HOME/bin/mac
 else
     export JAVA_HOME=/opt/jdk8
     export JDK_HOME=/opt/jdk8
     export RUBYMINE_JDK=/opt/jdk8/
     export IDEA_JDK=/opt/jdk8/
+    export PATH=$HOME/bin/linux
 fi
 
-export PATH=$HOME/.rbenv/bin:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:$PATH
 
 eval "$(jenv init -)"
 eval "$(rbenv init -)"
