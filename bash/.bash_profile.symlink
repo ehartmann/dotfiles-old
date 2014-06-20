@@ -29,3 +29,6 @@ export PATH=$HOME/.rvm/bin:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/eric/.gvm/bin/gvm-init.sh" ]] && source "/Users/eric/.gvm/bin/gvm-init.sh"

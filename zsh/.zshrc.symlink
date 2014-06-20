@@ -90,7 +90,7 @@ export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket
 
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
 
-export PATH=$HOME/.rbenv/bin:$HOME/bin:/opt/npm/bin:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/bin:/opt/npm/bin:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -106,3 +106,6 @@ fi
 
 eval "$(jenv init -)"
 eval "$(rbenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/eric/.gvm/bin/gvm-init.sh" ]] && source "/Users/eric/.gvm/bin/gvm-init.sh"

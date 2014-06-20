@@ -56,6 +56,6 @@
 [branch]
 	autosetuprebase = always
 [pull]
-	rebase = preserve
+#	rebase = preserve
 [rebase]
 	autosquash = true
