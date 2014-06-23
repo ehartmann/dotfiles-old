@@ -23,6 +23,7 @@ fi
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-default-gems" ] && git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-gem-rehash" ] && git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-aliases" ] && git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
+[ ! -d "${HOME}/.rbenv/plugins/rbenv-update" ] && git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
 
 cat > ~/.rbenv/default-gems << "EOF"
 bundler

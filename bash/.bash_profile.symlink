@@ -31,4 +31,4 @@ export PATH=$HOME/.rvm/bin:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bi
 eval "$(jenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/eric/.gvm/bin/gvm-init.sh" ]] && source "/Users/eric/.gvm/bin/gvm-init.sh"
+[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
