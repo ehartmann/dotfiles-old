@@ -58,11 +58,9 @@ function hg_prompt_info2 {
   fi
 }
 
+
 # Prompt format
-PROMPT='
-%* %{$GREEN_BOLD%}%n@%m%{$WHITE%}:%{$BLUE%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%} %{$GREEN_BOLD%}$(git_current_branch)$(git_current_tag)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}
+PROMPT='%* %{$GREEN_BOLD%}%n@%m%{$WHITE%}:%{$BLUE%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%} %{$GREEN_BOLD%}$(git_current_branch)$(git_current_tag)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}
 %{$BLUE%}>%{$RESET_COLOR%} '
-#PROMPT='
-#%* %{$GREEN_BOLD%}%n@%m%{$WHITE%}:%{$BLUE%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%} %{$GREEN_BOLD%}$(git_current_branch)$(git_current_tag)$(hg_prompt_info2)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}
-#%{$BLUE%}>%{$RESET_COLOR%} '
-#RPROMPT='%{$GREEN_BOLD%}$(current_branch)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}'
+RPROMPT="(%{$GREEN%}$(~/.jenv/bin/jenv version | sed -e 's/.*-\(.*\)-.*$/\1/')%{$RESET_COLOR%})(%{$YELLOW%}$(~/.rbenv/bin/rbenv version | sed -e 's/ (set.*$//')%{$RESET_COLOR%})⃫(%{$BLUE%}$(node -v)%{$RESET_COLOR%})"
+
