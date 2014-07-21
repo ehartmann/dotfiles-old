@@ -40,12 +40,12 @@ ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$WHITE%}[%{$YELLOW%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$WHITE%}]"
 
 function git_current_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  ref=$(command git symbolic-ref HEAD 2> /dev/null) || return
   echo ${ref#refs/heads/}
 }
 
 function git_current_tag() {
-  tag=$(git describe --exact-match --tags $(git log -n1 --pretty='%h' 2> /dev/null) 2> /dev/null) || return
+  tag=$(command git describe --exact-match --tags $(command git log -n1 --pretty='%h' 2> /dev/null) 2> /dev/null) || return
   echo " %{$YELLOW%}${tag}"
 }
 

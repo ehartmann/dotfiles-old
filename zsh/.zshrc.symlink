@@ -47,7 +47,7 @@ ZSH_THEME="eric"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ant capistrano command-not-found docker git-extras git-flow github gitignore git-prompt history knife knife_ssh mercurial mvn node npm rails rake ruby rsync sublime sudo svn terminitor vagrant brew brew-cask bower golang jira sublime terminator)
+plugins=(git ant command-not-found jenv docker git-extras git-flow gitignore git-prompt history  mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang jira)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,9 +68,9 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-#autoload -Uz vcs_info
-#zstyle ':vcs_info:*' enable hg git bzr svn
-#zstyle ':vcs_info:hg*:*' check-for-changes true
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable hg git bzr svn
+zstyle ':vcs_info:hg*:*' check-for-changes true
 #zstyle ':vcs_info:hg*:netbeans' use-simple true
 #zstyle ':vcs_info:hg*' actionformats "(%s|%a)[%i%u %b %m]"
 
@@ -81,20 +81,19 @@ platform=`uname`
 
 export ANT_HOME=/opt/apache-ant-1.9.2/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
-
 export M2_HOME=/opt/apache-maven-3.0.5/
 export MAVEN_HOME=$M2_HOME
 export MAVEN_OPTS="-Xmx784M -Xms128M"
-export MAVEN_OPTS_CH="-Xmx784M -Xms128M -Djavax.net.ssl.trustStore=/home/eric/Dropbox/Codehaus/keystore -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.certStore=/home/eric/Dropbox/Codehaus/keystore -Djavax.net.ssl.certStorePassword=changeit"
 export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
-
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
-
 export PATH=$HOME/.rbenv/bin:$HOME/bin/.gvm/bin:/opt/npm/bin:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH
+export ù=$HOME/Projects/SonarSource/github
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-    export PATH=$HOME/bin/mac:$PATH
+    export RUBYMINE_JDK=`/usr/libexec/java_home -v 1.8`
+    export IDEA_JDK=`/usr/libexec/java_home -v 1.8`	
+    export PATH=$HOME/bin/mac:/usr/local/sbin:$PATH
 else
     export JAVA_HOME=/opt/jdk8
     export JDK_HOME=/opt/jdk8
@@ -102,7 +101,6 @@ else
     export IDEA_JDK=/opt/jdk8/
     export PATH=$HOME/bin/linux:$PATH
 fi
-
 
 eval "$(jenv init -)"
 eval "$(rbenv init -)"
