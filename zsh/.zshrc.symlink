@@ -47,7 +47,7 @@ ZSH_THEME="eric"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ant command-not-found jenv docker git-extras git-flow gitignore git-prompt history  mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang jira)
+plugins=(git ant command-not-found jenv docker git-extras git-flow gitignore git-prompt history hub  mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang jira)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,7 +86,7 @@ export MAVEN_HOME=$M2_HOME
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
-export PATH=$HOME/.rbenv/bin:$HOME/bin/.gvm/bin:/opt/npm/bin:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH
 export ù=$HOME/Projects/SonarSource/github
 
 if [[ "$platform" == "Darwin" ]]; then
