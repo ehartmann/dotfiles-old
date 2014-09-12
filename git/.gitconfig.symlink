@@ -9,7 +9,7 @@
 	history-view-vpane-position = 617
 	file-view-vpane-position = 909
 [core]
-	autocrlf = false
+	autocrlf = input
 	safecrlf = true
 	excludesfile = /Users/eric/.gitignore_global
 [difftool "sourcetree"]
@@ -55,3 +55,5 @@
 	autosquash = true
 [merge]
 	renamelimit = 10000
+[hub]
+	protocol = ssh
