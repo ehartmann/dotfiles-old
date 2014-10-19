@@ -97,8 +97,8 @@ if [[ "$platform" == "Darwin" ]]; then
 else
     export JAVA_HOME=/opt/jdk8
     export JDK_HOME=/opt/jdk8
-    export RUBYMINE_JDK=/opt/jdk8/
-    export IDEA_JDK=/opt/jdk8/
+    export RUBYMINE_JDK=/opt/jdk9/
+    export IDEA_JDK=/opt/jdk9/
     export PATH=$HOME/bin/linux:$PATH
 fi
 
