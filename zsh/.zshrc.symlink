@@ -79,7 +79,7 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 
 platform=`uname`
 
-export ANT_HOME=/opt/apache-ant-1.9.2/
+export ANT_HOME=/opt/apache-ant-1.9.3/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export M2_HOME=/opt/apache-maven-3.0.5/
 export MAVEN_HOME=$M2_HOME
