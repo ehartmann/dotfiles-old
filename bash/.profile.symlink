@@ -1,2 +1,5 @@
 # ~/.profile: executed by the command interpreter for login shells.
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/eric/.gvm/bin/gvm-init.sh" ]] && source "/home/eric/.gvm/bin/gvm-init.sh"
