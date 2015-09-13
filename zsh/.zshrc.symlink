@@ -79,6 +79,7 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 
 platform=`uname`
 
+export ANSIBLE_NOCOWS=1
 export ANT_HOME=/opt/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export M2_HOME=/opt/apache-maven-3.0.5/
@@ -86,8 +87,9 @@ export MAVEN_HOME=$M2_HOME
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
-export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$PATH
-export ù=$HOME/Projects/SonarSource/github
+export ù=$HOME/Projects/SonarSource
+export GOPATH=$HOME/go
+export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$GOPATH/bin:$PATH
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -97,16 +99,20 @@ if [[ "$platform" == "Darwin" ]]; then
 else
     export JAVA_HOME=/opt/jdk8
     export JDK_HOME=/opt/jdk8
-    export RUBYMINE_JDK=/opt/jdk9/
-    export IDEA_JDK=/opt/jdk9/
+    export RUBYMINE_JDK=/opt/jdk8/
+    export IDEA_JDK=/opt/jdk8/
     export PATH=$HOME/bin/linux:$PATH
 fi
+
+# Store credentials there
+[[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"
 
 # The next line updates PATH for the Google Cloud SDK.
 source "$HOME/google-cloud-sdk/path.zsh.inc"
 
 # The next line enables bash completion for gcloud.
 source "$HOME/google-cloud-sdk/completion.zsh.inc"
+source "$HOME/.gvm/scripts/gvm"
 
 eval "$(jenv init -)"
 eval "$(rbenv init -)"
