@@ -21,13 +21,6 @@
 [github]
 	user = ehartmann
 	email = hartmann.eric@gmail.com
-[url "git://anongit.kde.org/"]
-	insteadOf = kde:
-	insteadof = kde://
-[url "git@git.kde.org:"]
-	pushInsteadOf = kde:
-[url "ssh://git@git.kde.org/"]
-	pushinsteadof = kde://
 [color]
 	ui = auto
 [alias]
@@ -58,3 +51,15 @@
 	renamelimit = 10000
 [hub]
 	protocol = ssh
+
+[filter "vault"]
+#  smudge = $HOME/bin/smudgeVault.sh
+#  clean  = $HOME/bin/cleanVault.sh
+#  required
+
+[diff "vault"]
+#  textconv = $HOME/bin/diffVault.sh
+#  cachetextconv = true	
+#  required
+[diff]
+	tool = meld

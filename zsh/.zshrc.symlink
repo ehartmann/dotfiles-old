@@ -82,10 +82,9 @@ platform=`uname`
 export ANSIBLE_NOCOWS=1
 export ANT_HOME=/opt/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
-export M2_HOME=/opt/apache-maven-3.0.5/
-export MAVEN_HOME=$M2_HOME
+export MAVEN_HOME=/opt/apache-maven-3.3.9/
 export MAVEN_OPTS="-Xmx784M -Xms128M"
-export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
+#export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
 export ù=$HOME/Projects/SonarSource
 export GOPATH=$HOME/go
@@ -99,8 +98,8 @@ if [[ "$platform" == "Darwin" ]]; then
 else
     export JAVA_HOME=/opt/jdk8
     export JDK_HOME=/opt/jdk9
-    export RUBYMINE_JDK=/opt/jdk9/
-    export IDEA_JDK=/opt/jdk9/
+    export RUBYMINE_JDK=/opt/jdk8/
+    export IDEA_JDK=/opt/jdk8/
     export PATH=$HOME/bin/linux:$PATH
 fi
 
@@ -125,3 +124,7 @@ source "$HOME/.gvm/scripts/gvm"
 
 eval "$(jenv init -)"
 eval "$(rbenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/eric/.sdkman"
+[[ -s "/home/eric/.sdkman/bin/sdkman-init.sh" ]] && source "/home/eric/.sdkman/bin/sdkman-init.sh"
