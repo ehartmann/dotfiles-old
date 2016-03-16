@@ -59,7 +59,7 @@ function hg_prompt_info2 {
 }
 
 function jenv_version {
-  local version=$($HOME/.jenv/bin/jenv version | sed -e 's/^\(.*\)\s*(set.*)$/\1/')
+  local version=$($HOME/.jenv/bin/jenv version | sed -e 's/^\(.*\) \s*(set.*)$/\1/')
   echo "(%{$GREEN%}${version}%{$RESET_COLOR%})"
 }
 
