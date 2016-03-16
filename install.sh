@@ -12,6 +12,7 @@ fi
 
 [ ! -d "${HOME}/.jenv" ] && git clone https://github.com/gcuisinier/jenv.git ~/.jenv
 [ ! -d "${HOME}/.oh-my-zsh" ] && curl -L http://install.ohmyz.sh | sh
+[ ! -d "${HOME}/.sdkman" ] && curl -s http://get.sdkman.io | sh
 
 # rbenv
 [ ! -d "${HOME}/.rbenv" ] && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -29,13 +30,14 @@ cat > ~/.rbenv/default-gems << "EOF"
 bundler
 git-up
 pry
+gist
 EOF
 
 export PATH="$HOME/.rbenv/bin:$HOME/.jenv/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(jenv init -)"
 
-for ruby in 1.9.3-p484 1.9.3-p545 2.0.0-p451 2.1.1 jruby-1.7.9 jruby-9000+graal-dev ; do
+for ruby in 1.9.3-p545 2.0.0-p451 2.2.4 2.3.0  ; do
 	[ ! -d "${HOME}/.rbenv/versions/${ruby}" ] && rbenv install ${ruby}
 done
 
