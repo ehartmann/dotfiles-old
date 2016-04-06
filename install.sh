@@ -20,11 +20,13 @@ fi
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-vars" ] && git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-each" ] && git clone https://github.com/chriseppstein/rbenv-each.git ~/.rbenv/plugins/rbenv-each
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-env" ] && git clone https://github.com/ianheggie/rbenv-env.git ~/.rbenv/plugins/rbenv-env
-#[ ! -d "${HOME}/.rbenv/plugins/rbenv-bundle-exec" ] && git clone https://github.com/maljub01/rbenv-bundle-exec.git ~/.rbenv/plugins/rbenv-bundle-exec
+[ ! -d "${HOME}/.rbenv/plugins/rbenv-bundle-exec" ] && git clone https://github.com/maljub01/rbenv-bundle-exec.git ~/.rbenv/plugins/rbenv-bundle-exec
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-default-gems" ] && git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-gem-rehash" ] && git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-aliases" ] && git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-update" ] && git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
+[ ! -d "${HOME}/.rbenv/plugins/rbenv-whatis" ] && git clone https://github.com/rkh/rbenv-whatis.git ~/.rbenv/plugins/rbenv-whatis
+[ ! -d "${HOME}/.rbenv/plugins/rbenv-update-rubies" ] && git clone https://github.com/toy/rbenv-update-rubies.git  ~/.rbenv/plugins/rbenv-update-rubies
 [ ! -d "${HOME}/google-cloud-sdk" ] && curl https://sdk.cloud.google.com | bash
 
 cat > ~/.rbenv/default-gems << "EOF"
