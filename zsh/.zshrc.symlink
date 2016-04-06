@@ -47,7 +47,7 @@ ZSH_THEME="eric"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ant command-not-found jenv docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang jira atom jira gradle osx tmux terminitor screen)
+plugins=(git ant command-not-found jenv docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer ansible ansible-galaxy ansible-playbook ansible-vault debuild example jq openssl packer ssh-copy-id virtualbox)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,7 +75,6 @@ zstyle ':vcs_info:hg*:*' check-for-changes true
 #zstyle ':vcs_info:hg*' actionformats "(%s|%a)[%i%u %b %m]"
 
 if [ -r ~/.profile ]; then . ~/.profile; fi
-#case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
 
 platform=`uname`
 
@@ -86,7 +85,7 @@ export MAVEN_HOME=/opt/apache-maven-3.3.9/
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 #export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
-export ù=$HOME/Projects/SonarSource
+export ù=$HOME/Projects
 export GOPATH=$HOME/go
 export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$GOPATH/bin:$PATH
 
@@ -111,6 +110,9 @@ ap() {
 av() {
   ansible-vault $* --vault-password-file ~/.vault_pass
 }
+
+compdef ap='ansible-playbook'
+compdef av='ansible-vault'
 
 # Store credentials there
 [[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"

@@ -11,7 +11,7 @@ fi
 
 
 [ ! -d "${HOME}/.jenv" ] && git clone https://github.com/gcuisinier/jenv.git ~/.jenv
-[ ! -d "${HOME}/.oh-my-zsh" ] && curl -L http://install.ohmyz.sh | sh
+[ ! -d "${HOME}/.oh-my-zsh" ] && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 [ ! -d "${HOME}/.sdkman" ] && curl -s http://get.sdkman.io | sh
 
 # rbenv
@@ -25,6 +25,7 @@ fi
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-gem-rehash" ] && git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-aliases" ] && git clone https://github.com/tpope/rbenv-aliases.git ~/.rbenv/plugins/rbenv-aliases
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-update" ] && git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
+[ ! -d "${HOME}/google-cloud-sdk" ] && curl https://sdk.cloud.google.com | bash
 
 cat > ~/.rbenv/default-gems << "EOF"
 bundler
@@ -37,7 +38,7 @@ export PATH="$HOME/.rbenv/bin:$HOME/.jenv/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(jenv init -)"
 
-for ruby in 1.9.3-p545 2.0.0-p451 2.2.4 2.3.0  ; do
+for ruby in 1.9.3-p551 2.2.4 2.3.0 2.4.0-dev  ; do
 	[ ! -d "${HOME}/.rbenv/versions/${ruby}" ] && rbenv install ${ruby}
 done
 
