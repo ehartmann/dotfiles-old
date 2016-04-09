@@ -104,11 +104,11 @@ fi
 
 # Alias
 ap() {
-  ansible-playbook $* --vault-password-file ~/.vault_pass
+  ansible-playbook ${@:2} --vault-password-file ~/.$1_pass
 }
 
 av() {
-  ansible-vault $* --vault-password-file ~/.vault_pass
+  ansible-vault ${@:2} --vault-password-file ~/.$1_pass
 }
 
 compdef ap='ansible-playbook'
