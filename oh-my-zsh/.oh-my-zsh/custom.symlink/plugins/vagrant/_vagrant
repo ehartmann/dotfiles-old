@@ -136,7 +136,7 @@ __vagrant-box ()
         ':command:->command' \
         '*::options:->options'
 
-   case $state in
+    case $state in
        (command)
            _describe -t commands "vagrant subcommand" _box_arguments
            return
