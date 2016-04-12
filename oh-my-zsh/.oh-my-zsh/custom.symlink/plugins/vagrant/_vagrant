@@ -161,7 +161,8 @@ __vagrant-plugin ()
         ':command:->command' \
         '*::options:->options'
 
-   case $state in
+    
+    case $state in
        (command)
            _describe -t commands "gem subcommand" _plugin_arguments
            return
