@@ -95,10 +95,10 @@ if [[ "$platform" == "Darwin" ]]; then
     export IDEA_JDK=`/usr/libexec/java_home -v 1.8`	
     export PATH=$HOME/bin/mac:/usr/local/sbin:$PATH
 else
-    export JAVA_HOME=/opt/jdk8
-    export JDK_HOME=/opt/jdk9
-    export RUBYMINE_JDK=/opt/jdk8/
-    export IDEA_JDK=/opt/jdk8/
+    export JAVA_HOME=/opt/eric/jdk8
+    export JDK_HOME=/opt/eric/jdk8
+    export RUBYMINE_JDK=/opt/eric/jdk9/
+    export IDEA_JDK=/opt/eric/jdk9/
     export PATH=$HOME/bin/linux:$PATH
 fi
 
