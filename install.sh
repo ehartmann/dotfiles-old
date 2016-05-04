@@ -31,7 +31,6 @@ fi
 
 cat > ~/.rbenv/default-gems << "EOF"
 bundler
-git-up
 pry
 gist
 EOF
