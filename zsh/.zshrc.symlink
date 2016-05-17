@@ -47,7 +47,7 @@ ZSH_THEME="eric"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ant command-not-found jenv docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer ansible ansible-galaxy ansible-playbook ansible-vault debuild example jq openssl packer ssh-copy-id virtualbox fasd)
+plugins=(git ant command-not-found jenv docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer ansible ansible-galaxy ansible-playbook ansible-vault debuild example jq openssl packer ssh-copy-id virtualbox fasd zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
