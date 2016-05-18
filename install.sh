@@ -31,9 +31,16 @@ fi
 
 cat > ~/.rbenv/default-gems << "EOF"
 bundler
-git-up
 pry
 gist
+tmuxme
+test-kitchen
+kitchen-docker
+kitchen-ansible
+kitchen-vagrant
+kitchen-ec2
+kitchen-google
+serverspec
 EOF
 
 export PATH="$HOME/.rbenv/bin:$HOME/.jenv/bin:$PATH"
