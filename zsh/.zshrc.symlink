@@ -29,7 +29,7 @@ ZSH_THEME="eric"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="false"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -103,12 +103,20 @@ else
 fi
 
 # Alias
-ap() {
+ap_pass() {
   ansible-playbook ${@:2} --vault-password-file ~/.$1_pass
 }
 
-av() {
+av_pass() {
   ansible-vault ${@:2} --vault-password-file ~/.$1_pass
+}
+
+ap() {
+  ansible-playbook $@ --vault-password-file ~/.marlin_pass
+}
+
+av() {
+  ansible-vault $@ --vault-password-file ~/.marlin_pass
 }
 
 compdef ap='ansible-playbook'
