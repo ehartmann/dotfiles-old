@@ -133,11 +133,11 @@ eval "$(jenv init -)"
 eval "$(rbenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/eric/.sdkman"
-[[ -s "/home/eric/.sdkman/bin/sdkman-init.sh" ]] && source "/home/eric/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/${HOME}/.sdkman"
+[[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/eric/google-cloud-sdk/path.zsh.inc'
+source '${HOME}/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
-source '/home/eric/google-cloud-sdk/completion.zsh.inc'
+source '${HOME}/google-cloud-sdk/completion.zsh.inc'
