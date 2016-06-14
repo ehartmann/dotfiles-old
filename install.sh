@@ -53,7 +53,7 @@ done
 
 case "${os}" in
 	linux)
-		for java in `ls -d /opt/jdk*` ; do
+		for java in `ls -d /opt/eric/jdk*` ; do
 			[[ ${java} != *_x32 ]] && jenv add ${java}
 		done
 		;;

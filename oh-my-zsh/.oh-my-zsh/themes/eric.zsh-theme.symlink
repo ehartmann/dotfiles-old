@@ -72,7 +72,7 @@ function rbenv_version {
 }
 
 function node_version {
-  local version=$(node -v)
+  local version=$(nodejs -v)
   echo "(%{$BLUE%}${version}%{$RESET_COLOR%})"
 }
 
