@@ -112,11 +112,11 @@ av_pass() {
 }
 
 ap() {
-  ansible-playbook $@ --vault-password-file ~/.marlin_pass
+  ansible-playbook $@
 }
 
 av() {
-  ansible-vault $@ --vault-password-file ~/.marlin_pass
+  ansible-vault $@
 }
 
 compdef ap='ansible-playbook'
