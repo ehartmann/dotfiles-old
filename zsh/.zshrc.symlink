@@ -80,7 +80,7 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 platform=`uname`
 
 export ANSIBLE_NOCOWS=1
-export ANT_HOME=/opt/apache-ant-1.9.4/
+export ANT_HOME=/opt/eric/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export MAVEN_HOME=/opt/eric/apache-maven-3.3.9/
 export MAVEN_OPTS="-Xmx784M -Xms128M"

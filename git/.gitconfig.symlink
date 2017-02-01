@@ -48,7 +48,7 @@
 [rebase]
 	autosquash = true
 [merge]
-	renamelimit = 10000
+	renameLimit = 10000
 [hub]
 	protocol = ssh
 
@@ -67,3 +67,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
