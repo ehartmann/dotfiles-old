@@ -99,7 +99,7 @@ else
     export JAVA_HOME=/opt/eric/jdk8
     export JDK_HOME=/opt/eric/jdk8
     export RUBYMINE_JDK=/opt/eric/jdk8/
-    export IDEA_JDK=/opt/eric/jdk8/
+    export IDEA_JDK=/opt/eric/jdk1.8.0_121/
     export PATH=$HOME/bin/linux:$PATH
 fi
 
