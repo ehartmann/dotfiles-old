@@ -36,3 +36,4 @@ eval "$(jenv init -)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/eric/.sdkman"
 [[ -s "/home/eric/.sdkman/bin/sdkman-init.sh" ]] && source "/home/eric/.sdkman/bin/sdkman-init.sh"
+if [ -e /home/eric/.nix-profile/etc/profile.d/nix.sh ]; then . /home/eric/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

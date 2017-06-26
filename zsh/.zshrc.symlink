@@ -82,7 +82,7 @@ platform=`uname`
 export ANSIBLE_NOCOWS=1
 export ANT_HOME=/opt/eric/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
-export MAVEN_HOME=/opt/eric/apache-maven-3.3.9/
+export MAVEN_HOME=/opt/eric/apache-maven-3.5.0/
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 #export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
@@ -92,14 +92,8 @@ export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-    export RUBYMINE_JDK=`/usr/libexec/java_home -v 1.8`
-    export IDEA_JDK=`/usr/libexec/java_home -v 1.8`	
     export PATH=$HOME/bin/mac:/usr/local/sbin:$PATH
 else
-    export JAVA_HOME=/opt/eric/jdk8
-    export JDK_HOME=/opt/eric/jdk8
-    export RUBYMINE_JDK=/opt/eric/jdk8/
-    export IDEA_JDK=/opt/eric/jdk1.8.0_121/
     export PATH=$HOME/bin/linux:$PATH
 fi
 

@@ -123,3 +123,7 @@ fi
 if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="//home/eric/.sdkman"
+[[ -s "//home/eric/.sdkman/bin/sdkman-init.sh" ]] && source "//home/eric/.sdkman/bin/sdkman-init.sh"
