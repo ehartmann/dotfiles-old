@@ -79,6 +79,7 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 
 platform=`uname`
 
+export LC_ALL=UTF-8
 export ANSIBLE_NOCOWS=1
 export ANT_HOME=/opt/eric/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
@@ -88,7 +89,7 @@ export MAVEN_OPTS="-Xmx784M -Xms128M"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
 export ù=$HOME/Projects
 export GOPATH=$HOME/go
-export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$GOPATH/bin:$PATH
+export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -124,6 +125,10 @@ compdef av='ansible-vault'
 source "$HOME/google-cloud-sdk/completion.zsh.inc"
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
+
 eval "$(jenv init -)"
 eval "$(rbenv init -)"
 
@@ -137,6 +142,3 @@ source "${HOME}/google-cloud-sdk/path.zsh.inc"
 # The next line enables shell command completion for gcloud.
 source "${HOME}/google-cloud-sdk/completion.zsh.inc"
 
-if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
-  source /etc/profile.d/vte.sh
-fi
