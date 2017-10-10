@@ -1,3 +1,6 @@
 [submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-autosuggestions"]
 	path = oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-autosuggestions
 	url = git://github.com/zsh-users/zsh-autosuggestions
+[submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zshmarks"]
+	path = oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zshmarks
+	url = https://github.com/jocelynmallon/zshmarks.git
