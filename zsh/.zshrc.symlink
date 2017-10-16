@@ -85,7 +85,7 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 
 platform=`uname`
 
-export LC_ALL=en_NZ.UTF-8
+export LC_ALL=UTF-8
 export ANSIBLE_NOCOWS=1
 export ANT_HOME=/opt/eric/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
