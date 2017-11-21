@@ -85,11 +85,10 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 
 platform=`uname`
 
-export LC_ALL=UTF-8
 export ANSIBLE_NOCOWS=1
 export ANT_HOME=/opt/eric/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
-export MAVEN_HOME=/opt/eric/apache-maven-3.5.0/
+export MAVEN_HOME=/opt/eric/apache-maven-3.5.2/
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 #export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
@@ -127,8 +126,6 @@ compdef av='ansible-vault'
 # Store credentials there
 [[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"
 
-# The next line enables bash completion for gcloud.
-source "$HOME/google-cloud-sdk/completion.zsh.inc"
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
