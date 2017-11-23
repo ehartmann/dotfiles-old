@@ -54,7 +54,7 @@ DISABLE_CORRECTION="false"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ant command-not-found jenv docker-compose docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer ansible ansible-galaxy ansible-playbook ansible-vault debuild example jq openssl packer ssh-copy-id virtualbox fasd gradle httpie jira tig tmux systemd screen zsh-autosuggestions zshmarks)
+plugins=(git ant command-not-found docker-compose docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer ansible ansible-galaxy ansible-playbook ansible-vault debuild example jq openssl packer ssh-copy-id virtualbox fasd gradle httpie jira tig tmux systemd screen zsh-autosuggestions zshmarks)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,7 +95,7 @@ export MAVEN_OPTS="-Xmx784M -Xms128M"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
 export ù=$HOME/Projects
 export GOPATH=$HOME/go
-export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:$HOME/.jenv/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
+export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -135,7 +135,6 @@ if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
-eval "$(jenv init -)"
 eval "$(rbenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
