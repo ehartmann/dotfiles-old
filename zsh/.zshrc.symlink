@@ -10,7 +10,7 @@ POWERLEVEL9K_MODE='awesome-fontconfig'
 #POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_BATTERY_VERBOSE=false
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir_writable ip public_ip java rbenv node_version docker_machine vcs newline dir ssh)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh dir_writable ip public_ip java rbenv node_version newline dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -91,10 +91,10 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 platform=`uname`
 
 export ANSIBLE_NOCOWS=1
-export ANT_HOME=/opt/eric/apache-ant-1.9.4/
+#export ANT_HOME=/opt/eric/apache-ant-1.9.4/
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
-export MAVEN_HOME=/opt/eric/apache-maven-3.5.2/
-export MAVEN_OPTS="-Xmx784M -Xms128M"
+#export MAVEN_HOME=/opt/eric/apache-maven-3.5.2/
+#export MAVEN_OPTS="-Xmx784M -Xms128M"
 #export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
 export ù=$HOME/Projects
