@@ -10,7 +10,7 @@ POWERLEVEL9K_MODE='awesome-fontconfig'
 #POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_BATTERY_VERBOSE=false
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh dir_writable ip public_ip java rbenv node_version newline dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh dir_writable ip public_ip_joined java rbenv_joined node_version_joined newline dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
 

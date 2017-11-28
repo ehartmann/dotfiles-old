@@ -1073,14 +1073,14 @@ prompt_rbenv() {
     #  return
     #fi
 
-    "$1_prompt_segment" "$0" "$2" "red" "$DEFAULT_COLOR" "$rbenv_version_name" 'RUBY_ICON'
+    "$1_prompt_segment" "$0" "$2" "red" "$DEFAULT_COLOR" "${rbenv_version_name}" 'RUBY_ICON'
  fi
 }
 
 # java version
 prompt_java() {
   local version=$(java -version  2>&1 | head -n 1 |  sed 's/^\(.*\) \(.*\) "\(.*\)"$/\3/g')
-  "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "\uE256 ${version}" ''
+  "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "\uE256${version}" ''
 }
 
 # chruby information
