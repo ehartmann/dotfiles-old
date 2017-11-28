@@ -6,8 +6,9 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="eric"
-POWERLEVEL9K_MODE='awesome-fontconfig'
-#POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_MODE='awesome-fontconfig'
+#POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_BATTERY_VERBOSE=false
