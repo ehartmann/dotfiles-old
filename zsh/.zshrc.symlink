@@ -12,9 +12,40 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_BATTERY_VERBOSE=false
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_RBENV_BACKGROUND="130"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+
+POWERLEVEL9K_RBENV_BACKGROUND="235"
+POWERLEVEL9K_RBENV_FOREGROUND="246"
+
+POWERLEVEL9K_JAVA_BACKGROUND="235"
+POWERLEVEL9K_JAVA_FOREGROUND="246"
+
+POWERLEVEL9K_NODE_VERSION_BACKGROUND="235"
+POWERLEVEL9K_NODE_VERSION_FOREGROUND="246"
+
+POWERLEVEL9K_IP_BACKGROUND="237"
+POWERLEVEL9K_IP_FOREGROUND="246"
+POWERLEVEL9K_PUBLIC_IP_BACKGROUND="237"
+POWERLEVEL9K_PUBLIC_IP_FOREGROUND="246"
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND="240"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="250"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="240"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="249"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="240"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="249"
+
+POWERLEVEL9K_STATUS_OK_BACKGROUND="240"
+POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND="240"
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
+
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='150'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='236'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='178'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='236'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='088'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='250'
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh dir_writable ip public_ip_joined java rbenv_joined node_version_joined newline dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -64,7 +95,7 @@ DISABLE_CORRECTION="false"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ant command-not-found docker-compose docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer ansible ansible-galaxy ansible-playbook ansible-vault debuild example jq openssl packer ssh-copy-id virtualbox fasd gradle httpie jira tig tmux systemd screen zsh-autosuggestions zshmarks)
+plugins=(git ant command-not-found docker-compose docker git-extras git-flow gitignore git-prompt hub history mercurial mvn node npm rails rake ruby rsync sublime sudo vagrant brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer ansible ansible-galaxy ansible-playbook ansible-vault debuild example jq openssl packer ssh-copy-id virtualbox fasd gradle httpie jira tig tmux systemd screen zsh-autosuggestions zsh-highlighting zshmarks)
 
 source $ZSH/oh-my-zsh.sh
 
