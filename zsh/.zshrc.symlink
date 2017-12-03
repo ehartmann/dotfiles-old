@@ -57,7 +57,7 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='236'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='088'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='250'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined java rbenv_joined node_version_joined vcs newline dir dir_writable_joined)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined java rbenv_joined node_version_joined vcs newline dir_writable dir_joined)
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined vcs ip public_ip_joined java rbenv_joined node_version_joined newline dir dir_writable_joined)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
