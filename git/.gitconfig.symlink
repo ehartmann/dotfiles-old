@@ -42,6 +42,7 @@
 	merc = merge --no-ff
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 	webui = !/home/eric/Projects/eric/git-webui/release/libexec/git-core/git-webui
+	serve = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
 [push]
 	default = current
 [help]
