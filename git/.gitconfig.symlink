@@ -78,3 +78,5 @@
 	insteadOf = https://github.com/
 [webui]
 	autoupdate = true
+[commit]
+	gpgsign = true
