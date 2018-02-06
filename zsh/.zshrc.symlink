@@ -146,10 +146,10 @@ export ANSIBLE_NOCOWS=1
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 #export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
-export NODE_PATH=$NODE_PATH:/opt/npm/lib/node_modules
+export NODE_PATH=$NODE_PATH
 export ù=$HOME/Projects
 export GOPATH=$HOME/go
-export PATH=$HOME/.rbenv/bin:/opt/npm/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/heroku/bin:/usr/local/bin:/opt/groovy/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -199,12 +199,8 @@ eval "$(rbenv init -)"
 export SDKMAN_DIR="/${HOME}/.sdkman"
 [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
 
-# The next line enables shell command completion for gcloud.
-source "${HOME}/google-cloud-sdk/completion.zsh.inc"
-
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/ehartmann/google-cloud-sdk/path.zsh.inc' ]; then source '/home/ehartmann/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then source '${HOME}/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/ehartmann/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/ehartmann/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then source '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
