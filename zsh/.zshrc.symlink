@@ -76,6 +76,8 @@ alias d="deletemark"
 alias p="showmarks"
 alias l="showmarks"
 
+unalias rm cp
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -183,6 +185,8 @@ alias s="bookmark"
 alias d="deletemark"
 alias p="showmarks"
 alias l="showmarks"
+
+unalias rm
 
 # Store credentials there
 [[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"
