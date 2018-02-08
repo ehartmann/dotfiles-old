@@ -65,18 +65,6 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined java rbenv_joined node_ver
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pssh="parallel-ssh -i -O StrictHostKeyChecking=no -O UserKnownHostsFile=/dev/null -O GlobalKnownHostsFile=/dev/null"
-# zshmarks
-alias g="jump"
-alias s="bookmark"
-alias d="deletemark"
-alias p="showmarks"
-alias l="showmarks"
-
-unalias rm cp
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -180,6 +168,11 @@ av() {
 compdef ap='ansible-playbook'
 compdef av='ansible-vault'
 
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pssh="parallel-ssh -i -O StrictHostKeyChecking=no -O UserKnownHostsFile=/dev/null -O GlobalKnownHostsFile=/dev/null"
+# zshmarks
 alias g="jump"
 alias s="bookmark"
 alias d="deletemark"
@@ -187,6 +180,7 @@ alias p="showmarks"
 alias l="showmarks"
 
 unalias rm
+unalias cp
 
 # Store credentials there
 [[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"
