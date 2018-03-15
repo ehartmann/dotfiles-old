@@ -137,6 +137,8 @@ platform=`uname`
 export ANSIBLE_NOCOWS=1
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export MAVEN_OPTS="-Xmx784M -Xms128M"
+export GRADLE_OPTS="-Xmx784M -Xms128M"
+export GRADLE_USER_HOME="$HOME/.gradle"
 #export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=$NODE_PATH
 export ù=$HOME/Projects
