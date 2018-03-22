@@ -1,6 +1,7 @@
 [user]
 	name = Eric Hartmann
 	email = hartmann.eric@gmail.com
+	signingkey = FB65AFE0
 [giggle]
 	compact-mode = false
 	main-window-maximized = false
@@ -14,7 +15,7 @@
 	excludesfile = /Users/eric/.gitignore_global
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
@@ -25,14 +26,14 @@
 	ui = auto
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ls = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate
 	st = status -sb
 	ci = commit -v
 	co = checkout
 	br = branch
 	ds = diff --staged
 	standup = log --since '1 day ago' --oneline --author hartmann.eric@gmail.com
-	graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, "%ar%Creset'"
+	graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
 	undo = reset --soft HEAD^
 	amend = commit --amend -C HEAD
 	unstage = reset HEAD
@@ -42,7 +43,10 @@
 	merc = merge --no-ff
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 	webui = !/home/eric/Projects/eric/git-webui/release/libexec/git-core/git-webui
-	serve = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
+        fixup2 = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+	serve = daemon --reuseaddr --base-path=.git --export-all --verbose --strict-paths --listen=192.168.1.30 .git/
+	serve-with-push = daemon --reuseaddr --base-path=.git --export-all --verbose --strict-paths --enable=receive-pack .git/
+
 [push]
 	default = current
 [help]
