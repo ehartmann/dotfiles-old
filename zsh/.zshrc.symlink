@@ -183,6 +183,7 @@ alias s="bookmark"
 alias d="deletemark"
 alias p="showmarks"
 alias l="showmarks"
+alias gr="gradle"
 
 unalias rm
 unalias cp
