@@ -695,7 +695,10 @@ set_default POWERLEVEL9K_DIR_PATH_SEPARATOR "/"
 set_default POWERLEVEL9K_HOME_FOLDER_ABBREVIATION "~"
 set_default POWERLEVEL9K_DIR_SHOW_WRITABLE false
 prompt_dir() {
+  local tmp="$IFS"
+  local IFS=""
   local current_path=$(pwd | sed -e "s,^$HOME,~,")
+  local IFS="$tmp"
   if [[ -n "$POWERLEVEL9K_SHORTEN_DIR_LENGTH" || "$POWERLEVEL9K_SHORTEN_STRATEGY" == "truncate_with_folder_marker" ]]; then
     set_default POWERLEVEL9K_SHORTEN_DELIMITER $'\U2026'
 
@@ -806,7 +809,9 @@ prompt_dir() {
         current_path="${cur_short_path: : -1}"
       ;;
       *)
-        current_path="$(print -P "%$((POWERLEVEL9K_SHORTEN_DIR_LENGTH+1))(c:$POWERLEVEL9K_SHORTEN_DELIMITER/:)%${POWERLEVEL9K_SHORTEN_DIR_LENGTH}c")"
+        if [[ $current_path != "~" ]]; then
+          current_path="$(print -P "%$((POWERLEVEL9K_SHORTEN_DIR_LENGTH+1))(c:$POWERLEVEL9K_SHORTEN_DELIMITER/:)%${POWERLEVEL9K_SHORTEN_DIR_LENGTH}c")"
+        fi
       ;;
     esac
   fi
@@ -980,9 +985,9 @@ prompt_load() {
   # Replace comma
   load_avg=${load_avg//,/.}
 
-  if [[ "$load_avg" -gt $(bc -l <<< "${cores} * 0.7") ]]; then
+  if [[ "$load_avg" -gt $((${cores} * 0.7)) ]]; then
     current_state="critical"
-  elif [[ "$load_avg" -gt $(bc -l <<< "${cores} * 0.5") ]]; then
+  elif [[ "$load_avg" -gt $((${cores} * 0.5)) ]]; then
     current_state="warning"
   else
     current_state="normal"
@@ -997,7 +1002,7 @@ prompt_node_version() {
   local node_version=$(node -v 2>/dev/null)
   [[ -z "${node_version}" ]] && return
 
-  "$1_prompt_segment" "$0" "$2" "green" "white" "${node_version:1}" 'NODE_ICON'
+  "$1_prompt_segment" "$0" "$2" "green" "white" "\u2B22 ${node_version:1}" ''
 }
 
 # Node version from NVM
@@ -1062,25 +1067,26 @@ prompt_ram() {
   "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "$(printSizeHumanReadable "$ramfree" $base)" 'RAM_ICON'
 }
 
+# Java
+prompt_java() {
+  local version="$(java -version  2>&1 | head -n 1 |  sed 's/^.*\"\(.*\)\".*$/\1/g')"
+  "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "\uE256${version}" ''
+}
+
+set_default POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW false
 # rbenv information
 prompt_rbenv() {
-  if which rbenv 2>/dev/null >&2; then
+  if command which rbenv 2>/dev/null >&2; then
     local rbenv_version_name="$(rbenv version-name)"
     local rbenv_global="$(rbenv global)"
 
     # Don't show anything if the current Ruby is the same as the global Ruby.
-    #if [[ $rbenv_version_name == $rbenv_global ]]; then
-    #  return
-    #fi
+    if [[ $rbenv_version_name == $rbenv_global && "$POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW" = false ]]; then
+      return
+    fi
 
-    "$1_prompt_segment" "$0" "$2" "red" "$DEFAULT_COLOR" "${rbenv_version_name}" 'RUBY_ICON'
- fi
-}
-
-# java version
-prompt_java() {
-  local version=$(java -version  2>&1 | head -n 1 |  sed 's/^\(.*\) \(.*\) "\(.*\)"$/\3/g')
-  "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "\uE256${version}" ''
+    "$1_prompt_segment" "$0" "$2" "red" "$DEFAULT_COLOR" "\uF219$rbenv_version_name" ''
+  fi
 }
 
 # chruby information
@@ -1166,8 +1172,13 @@ prompt_status() {
   local ec
 
   if [[ $POWERLEVEL9K_STATUS_SHOW_PIPESTATUS == true ]]; then
-    ec_text=$(exit_code_or_status "${RETVALS[1]}")
-    ec_sum=${RETVALS[1]}
+    if (( $#RETVALS > 1 )); then
+      ec_text=$(exit_code_or_status "${RETVALS[1]}")
+      ec_sum=${RETVALS[1]}
+    else
+      ec_text=$(exit_code_or_status "${RETVAL}")
+      ec_sum=${RETVAL}
+    fi
 
     for ec in "${(@)RETVALS[2,-1]}"; do
       ec_text="${ec_text}|$(exit_code_or_status "$ec")"
@@ -1385,18 +1396,10 @@ prompt_virtualenv() {
 }
 
 # pyenv: current active python version (with restrictions)
-# More information on pyenv (Python version manager like rbenv and rvm):
-# https://github.com/yyuu/pyenv
-# the prompt parses output of pyenv version and only displays the first word
+# https://github.com/pyenv/pyenv#choosing-the-python-version
 prompt_pyenv() {
-  local pyenv_version="$(pyenv version 2>/dev/null)"
-  pyenv_version="${pyenv_version%% *}"
-  # XXX: The following should return the same as above.
-  # This reads better for devs familiar with sed/awk/grep/cut utilities
-  # Using shell expansion/substitution may hamper future maintainability
-  #local pyenv_version="$(pyenv version 2>/dev/null | head -n1 | cut -d' ' -f1)"
-  if [[ -n "$pyenv_version" && "$pyenv_version" != "system" ]]; then
-    "$1_prompt_segment" "$0" "$2" "blue" "$DEFAULT_COLOR" "$pyenv_version" 'PYTHON_ICON'
+  if [[ -n "$PYENV_VERSION" ]]; then
+    "$1_prompt_segment" "$0" "$2" "blue" "$DEFAULT_COLOR" "$PYENV_VERSION" 'PYTHON_ICON'
   fi
 }
 
@@ -1429,7 +1432,18 @@ prompt_kubecontext() {
     if [[ -z "$k8s_namespace" ]]; then
       k8s_namespace="default"
     fi
-    "$1_prompt_segment" "$0" "$2" "magenta" "white" "$k8s_context/$k8s_namespace" "KUBERNETES_ICON"
+
+    local k8s_final_text=""
+
+    if [[ "$k8s_context" == "k8s_namespace" ]]; then
+      # No reason to print out the same identificator twice
+      k8s_final_text="$k8s_context"
+    else
+      k8s_final_text="$k8s_context/$k8s_namespace"
+    fi
+
+
+    "$1_prompt_segment" "$0" "$2" "magenta" "white" "$k8s_final_text" "KUBERNETES_ICON"
   fi
 }
 

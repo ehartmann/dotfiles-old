@@ -62,7 +62,8 @@ function hg_prompt_info2 {
 }
 
 function java_version {
-  local version=$(java -version  2>&1 | head -n 1 |  sed 's/^\(.*\) \(.*\) "\(.*\)"$/\3/g')
+  #local version=$(java -version  2>&1 | head -n 1 |  sed 's/^.*"\(.*\)".*$/\1/g')
+  local version="1"
   echo "(%{$GREEN%}${version}%{$RESET_COLOR%})"
 }
 
