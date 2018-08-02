@@ -84,3 +84,5 @@
 	autoupdate = true
 [commit]
 	gpgsign = true
+[sequence]
+	editor = /home/eric/node_modules/.bin/rebase-editor
