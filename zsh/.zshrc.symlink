@@ -188,6 +188,7 @@ alias gr="gradle"
 
 unalias rm
 unalias cp
+unalias gradle
 
 # Store credentials there
 [[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"
