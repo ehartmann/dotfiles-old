@@ -12,7 +12,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
-	excludesfile = /Users/eric/.gitignore_global
+	excludesfile = /home/eric/.gitignore_global
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path =
