@@ -144,7 +144,7 @@ export GRADLE_USER_HOME="$HOME/.gradle"
 export NODE_PATH=$NODE_PATH
 export ù=$HOME/Projects
 export GOPATH=$HOME/go
-export PATH=$HOME/.rbenv/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/.cargo/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
 export SONARQUBE_USER_PATCHES_HOME=$HOME/Projects/eric/patches
 
 if [[ "$platform" == "Darwin" ]]; then
