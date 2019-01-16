@@ -1,6 +1,6 @@
 [user]
 	name = Eric Hartmann
-	email = hartmann.eric@gmail.com
+	email = 112486+ehartmann@users.noreply.github.com
 	signingkey = FB65AFE0
 [giggle]
 	compact-mode = false
@@ -88,3 +88,5 @@
 	editor = /home/eric/node_modules/.bin/rebase-editor
 [rerere]
 	enabled = true
+[absorb]
+	maxStack = 50

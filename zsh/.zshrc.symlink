@@ -63,7 +63,7 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='088'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='250'
 
 POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined java rbenv_joined node_version_joined vcs newline dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined java rbenv_joined node_version_joined vcs aws newline dir)
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined vcs ip public_ip_joined java rbenv_joined node_version_joined newline dir dir_writable_joined)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -104,7 +104,7 @@ DISABLE_CORRECTION="false"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # gitfast ?
-plugins=(git ant command-not-found common-aliases docker-compose docker git-extras git-flow gitignore git-prompt history mercurial mvn node npm rails rake ruby rsync sublime sudo brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer debuild example jq openssl packer ssh-copy-id virtualbox fasd gradle httpie jira tig tmux systemd screen zsh-autosuggestions zsh-highlighting zshmarks zsh-completions jsontools wd)
+plugins=(git ant command-not-found common-aliases docker-compose docker git-extras git-flow gitignore git-prompt history mercurial mvn node npm rails rake ruby rsync sublime sudo brew brew-cask bower golang go jira atom jira tmux kitchen terminitor screen osx completions packer debuild example jq openssl packer ssh-copy-id virtualbox fasd gradle httpie jira tig tmux systemd screen zsh-autosuggestions zsh-highlighting zshmarks zsh-completions jsontools wd aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,6 +130,19 @@ zstyle ':vcs_info:*' enable hg git bzr svn
 zstyle ':vcs_info:hg*:*' check-for-changes true
 #zstyle ':vcs_info:hg*:netbeans' use-simple true
 #zstyle ':vcs_info:hg*' actionformats "(%s|%a)[%i%u %b %m]"
+
+# Set locales
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US:en"
+export LC_NUMERIC="fr_FR.UTF-8"
+export LC_TIME="fr_FR.UTF-8"
+export LC_MONETARY="fr_FR.UTF-8"
+export LC_PAPER="fr_FR.UTF-8"
+export LC_NAME="fr_FR.UTF-8"
+export LC_ADDRESS="fr_FR.UTF-8"
+export LC_TELEPHONE="fr_FR.UTF-8"
+export LC_MEASUREMENT="fr_FR.UTF-8"
+export LC_IDENTIFICATION="fr_FR.UTF-8"
 
 if [ -r ~/.profile ]; then . ~/.profile; fi
 
