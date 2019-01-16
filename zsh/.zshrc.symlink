@@ -63,7 +63,7 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='088'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='250'
 
 POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined java rbenv_joined node_version_joined vcs aws newline dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined aws java rbenv_joined node_version_joined vcs newline dir)
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined vcs ip public_ip_joined java rbenv_joined node_version_joined newline dir dir_writable_joined)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
