@@ -148,6 +148,8 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 
 platform=`uname`
 
+export DEBEMAIL=hartmann.eric@gmail.com
+export DEBFULLNAME="Eric Hartmann"
 export ANSIBLE_NOCOWS=1
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
 export MAVEN_OPTS="-Xmx784M -Xms128M"
