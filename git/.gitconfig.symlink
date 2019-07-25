@@ -2,23 +2,10 @@
 	name = Eric Hartmann
 	email = 112486+ehartmann@users.noreply.github.com
 	signingkey = FB65AFE0
-[giggle]
-	compact-mode = false
-	main-window-maximized = false
-	main-window-geometry = 989x1000+20+24
-	main-window-view = HistoryView
-	history-view-vpane-position = 617
-	file-view-vpane-position = 909
 [core]
 	autocrlf = input
 	safecrlf = true
 	excludesfile = /home/eric/.gitignore_global
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
 [github]
 	user = ehartmann
 	email = hartmann.eric@gmail.com
@@ -63,15 +50,6 @@
 [hub]
 	protocol = ssh
 
-[filter "vault"]
-#  smudge = $HOME/bin/smudgeVault.sh
-#  clean  = $HOME/bin/cleanVault.sh
-#  required
-
-[diff "vault"]
-#  textconv = $HOME/bin/diffVault.sh
-#  cachetextconv = true	
-#  required
 [diff]
 	tool = meld
 [filter "lfs"]
@@ -90,3 +68,13 @@
 	enabled = true
 [absorb]
 	maxStack = 50
+
+[diff "ansible-vault"]
+	textconv = ansible-vault view
+	# Do not cache the vault contents
+	cachetextconv = false
+
+[merge "ansible-vault"]
+	name = ansible-vault merge driver
+	driver = $HOME/bin/ansible-vault-merge %O %A %B 
+	#%P
