@@ -1,6 +1,9 @@
 [submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-autosuggestions"]
 	path = oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-autosuggestions
 	url = git://github.com/zsh-users/zsh-autosuggestions
-[submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zshmarks"]
-	path = oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zshmarks
-	url = https://github.com/jocelynmallon/zshmarks.git
+[submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-syntax-highlighting"]
+	path = oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-completions"]
+	path = oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions

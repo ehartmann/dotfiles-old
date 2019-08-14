@@ -164,6 +164,7 @@ plugins=(
   wd
   zsh-autosuggestions
   zsh-completions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -212,6 +213,7 @@ export DEBEMAIL=hartmann.eric@gmail.com
 export DEBFULLNAME="Eric Hartmann"
 export ANSIBLE_NOCOWS=1
 export ANT_OPTS="-Xmx784M -Xms128M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=128m"
+export AWS_SDK_LOAD_CONFIG=1
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 export GRADLE_OPTS="-Xmx784M -Xms128M"
 export GRADLE_USER_HOME="$HOME/.gradle"
@@ -219,7 +221,7 @@ export GRADLE_USER_HOME="$HOME/.gradle"
 export NODE_PATH=$NODE_PATH
 export ù=$HOME/Projects
 export GOPATH=$HOME/go
-export PATH=$HOME/.rbenv/bin:$HOME/.cargo/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/opt/eric/go-1.12.1/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/.cargo/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/opt/eric/go/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
 export SONARQUBE_USER_PATCHES_HOME=$HOME/Projects/eric/patches
 export PROJECT_PATHS=(~/Projects/sonarsource ~/Projects/eric ~/Projects/za ~/Projects/servebox)
 export QT_AUTOSCREEN_SCALE_FACTOR=0

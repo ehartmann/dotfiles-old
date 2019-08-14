@@ -65,16 +65,26 @@
 [sequence]
 	editor = /home/eric/node_modules/.bin/rebase-editor
 [rerere]
-	enabled = true
+	enabled = false
 [absorb]
 	maxStack = 50
 
+[diff "sops"]
+	textconv = $HOME/bin/merge-secrets sops-textconv
+	# Do not cache the vault contents
+	cachetextconv = false
+
+[merge "sops"]
+	name = sops merge driver
+	driver = $HOME/bin/merge-secrets sops-merge %O %A %B 
+	#%P
+
 [diff "ansible-vault"]
-	textconv = ansible-vault view
+	textconv = $HOME/bin/merge-secrets vault-textconv
 	# Do not cache the vault contents
 	cachetextconv = false
 
 [merge "ansible-vault"]
 	name = ansible-vault merge driver
-	driver = $HOME/bin/ansible-vault-merge %O %A %B 
+	driver = $HOME/bin/merge-secrets vault-merge %O %A %B 
 	#%P
