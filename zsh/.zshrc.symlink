@@ -150,7 +150,6 @@ plugins=(
   ruby
   rust
   screen
-  screen
   sdk
   sublime
   sudo

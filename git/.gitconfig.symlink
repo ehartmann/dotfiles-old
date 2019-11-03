@@ -63,7 +63,7 @@
 [commit]
 	gpgsign = true
 [sequence]
-	editor = /home/eric/node_modules/.bin/rebase-editor
+	editor = interactive-rebase-tool
 [rerere]
 	enabled = false
 [absorb]
