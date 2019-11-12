@@ -124,6 +124,7 @@ plugins=(
   git-extras
   git-flow
   git-prompt
+  gitfast
   github
   gitignore
   golang
