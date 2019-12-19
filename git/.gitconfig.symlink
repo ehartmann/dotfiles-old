@@ -1,7 +1,7 @@
 [user]
 	name = Eric Hartmann
 	email = 112486+ehartmann@users.noreply.github.com
-	signingkey = FB65AFE0
+	signingkey = CAA81E66
 [core]
 	autocrlf = input
 	safecrlf = true
