@@ -133,3 +133,5 @@ export ftp_proxy=''
 export socks_proxy=''
 
 complete -C /home/eric/bin/linux/vault vault
+
+source /home/eric/.config/broot/launcher/bash/br
