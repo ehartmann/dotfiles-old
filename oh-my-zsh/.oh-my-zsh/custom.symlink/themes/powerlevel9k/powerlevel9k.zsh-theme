@@ -172,7 +172,7 @@ left_prompt_segment() {
       # Allow users to overwrite the color for the visual identifier only.
       local visual_identifier_color_variable=POWERLEVEL9K_${(U)${segment_name}#prompt_}_VISUAL_IDENTIFIER_COLOR
       set_default $visual_identifier_color_variable "${foregroundColor}"
-      visual_identifier="$(foregroundColor ${(P)visual_identifier_color_variable})${visual_identifier}%f"
+      visual_identifier="$(foregroundColor ${(P)visual_identifier_color_variable})${visual_identifier}"
     fi
   fi
 
@@ -274,7 +274,7 @@ right_prompt_segment() {
       # Allow users to overwrite the color for the visual identifier only.
       local visual_identifier_color_variable=POWERLEVEL9K_${(U)${segment_name}#prompt_}_VISUAL_IDENTIFIER_COLOR
       set_default $visual_identifier_color_variable "${foregroundColor}"
-      visual_identifier="$(foregroundColor ${(P)visual_identifier_color_variable})${visual_identifier}%f"
+      visual_identifier="$(foregroundColor ${(P)visual_identifier_color_variable})${visual_identifier}"
     fi
   fi
 
@@ -363,7 +363,8 @@ prompt_newline() {
   "$1_prompt_segment" \
     "$0" \
     "$2" \
-    "NONE" "NONE" "${newline}"
+    "" "" "${newline}"
+  CURRENT_BG='NONE'
   POWERLEVEL9K_WHITESPACE_BETWEEN_LEFT_SEGMENTS=$lws
 }
 
@@ -533,7 +534,9 @@ prompt_battery() {
 #   * $1 Alignment: string - left|right
 #   * $2 Index: integer
 #   * $3 Joined: bool - If the segment should be joined
+#   * $4 Root Prefix: string - Root prefix for testing purposes
 prompt_public_ip() {
+  local ROOT_PREFIX="${4}"
   # set default values for segment
   set_default POWERLEVEL9K_PUBLIC_IP_TIMEOUT "300"
   set_default POWERLEVEL9K_PUBLIC_IP_NONE ""
@@ -561,7 +564,7 @@ prompt_public_ip() {
 
   # grab a fresh IP if needed
   local fresh_ip
-  if [[ $refresh_ip =~ true && -w $POWERLEVEL9K_PUBLIC_IP_FILE ]]; then
+  if [[ $refresh_ip == true && -w $POWERLEVEL9K_PUBLIC_IP_FILE ]]; then
     for method in "${POWERLEVEL9K_PUBLIC_IP_METHODS[@]}"; do
       case $method in
         'dig')
@@ -597,11 +600,10 @@ prompt_public_ip() {
     icon='PUBLIC_IP_ICON'
     # Check VPN is on if VPN interface is set
     if [[ -n $POWERLEVEL9K_PUBLIC_IP_VPN_INTERFACE ]]; then
-      for vpn_iface in $(/sbin/ifconfig | grep -e ^"$POWERLEVEL9K_PUBLIC_IP_VPN_INTERFACE" | cut -d":" -f1)
-      do
+      local vpnIp="$(p9k::parseIp "${POWERLEVEL9K_PUBLIC_IP_VPN_INTERFACE}" "${ROOT_PREFIX}")"
+      if [[ -n "$vpnIp" ]]; then
         icon='VPN_ICON'
-        break
-      done
+      fi
     fi
     $1_prompt_segment "$0" "$2" "$DEFAULT_COLOR" "$DEFAULT_COLOR_INVERTED" "${public_ip}" "$icon"
   fi
@@ -797,7 +799,7 @@ prompt_dir() {
   # using $PWD instead of "$(print -P '%~')" to allow use of POWERLEVEL9K_DIR_PATH_ABSOLUTE
   local current_path=$PWD # WAS: local current_path="$(print -P '%~')"
   # check if the user wants to use absolute paths or "~" paths
-  [[ ${(L)POWERLEVEL9K_DIR_PATH_ABSOLUTE} != "true" ]] && current_path=${current_path//$HOME/"~"}
+  [[ ${(L)POWERLEVEL9K_DIR_PATH_ABSOLUTE} != "true" ]] && current_path=${current_path/#$HOME/"~"}
   # declare all local variables
   local paths directory test_dir test_dir_length trunc_path threshhold
   # if we are not in "~" or "/", split the paths into an array and exclude "~"
@@ -902,6 +904,8 @@ prompt_dir() {
         elif [[ $(git rev-parse --is-inside-git-dir 2> /dev/null) == "true" ]]; then
           package_path=${$(pwd)%%/.git*}
         fi
+
+        [[ ${(L)POWERLEVEL9K_DIR_PATH_ABSOLUTE} != "true" ]] && package_path=${package_path/$HOME/"~"}
 
         # Replace the shortest possible match of the marked folder from
         # the current path. Remove the amount of characters up to the
@@ -1098,31 +1102,8 @@ prompt_icons_test() {
 ################################################################
 # Segment to display the current IP address
 prompt_ip() {
-  if [[ "$OS" == "OSX" ]]; then
-    if defined POWERLEVEL9K_IP_INTERFACE; then
-      # Get the IP address of the specified interface.
-      ip=$(ipconfig getifaddr "$POWERLEVEL9K_IP_INTERFACE")
-    else
-      local interfaces callback
-      # Get network interface names ordered by service precedence.
-      interfaces=$(networksetup -listnetworkserviceorder | grep -o "Device:\s*[a-z0-9]*" | grep -o -E '[a-z0-9]*$')
-      callback='ipconfig getifaddr $item'
-
-      ip=$(getRelevantItem "$interfaces" "$callback")
-    fi
-  else
-    if defined POWERLEVEL9K_IP_INTERFACE; then
-      # Get the IP address of the specified interface.
-      ip=$(ip -4 a show "$POWERLEVEL9K_IP_INTERFACE" | grep -o "inet\s*[0-9.]*" | grep -o -E "[0-9.]+")
-    else
-      local interfaces callback
-      # Get all network interface names that are up
-      interfaces=$(ip link ls up | grep -o -E ":\s+[a-z0-9]+:" | grep -v "lo" | grep -o -E "[a-z0-9]+")
-      callback='ip -4 a show $item | grep -o "inet\s*[0-9.]*" | grep -o -E "[0-9.]+"'
-
-      ip=$(getRelevantItem "$interfaces" "$callback")
-    fi
-  fi
+  local ROOT_PREFIX="${4}"
+  local ip=$(p9k::parseIp "${POWERLEVEL9K_IP_INTERFACE}" "${ROOT_PREFIX}")
 
   if [[ -n "$ip" ]]; then
     "$1_prompt_segment" "$0" "$2" "cyan" "$DEFAULT_COLOR" "$ip" 'NETWORK_ICON'
@@ -1134,11 +1115,12 @@ prompt_ip() {
 set_default POWERLEVEL9K_VPN_IP_INTERFACE "tun"
 # prompt if vpn active
 prompt_vpn_ip() {
-  for vpn_iface in $(/sbin/ifconfig | grep -e "^${POWERLEVEL9K_VPN_IP_INTERFACE}" | cut -d":" -f1)
-  do
-    ip=$(/sbin/ifconfig "$vpn_iface" | grep -o "inet\s.*" | cut -d' ' -f2)
+  local ROOT_PREFIX="${4}"
+  local ip=$(p9k::parseIp "${POWERLEVEL9K_VPN_IP_INTERFACE}" "${ROOT_PREFIX}")
+
+  if [[ -n "${ip}" ]]; then
     "$1_prompt_segment" "$0" "$2" "cyan" "$DEFAULT_COLOR" "$ip" 'VPN_ICON'
-  done
+  fi
 }
 
 ################################################################
@@ -1238,9 +1220,8 @@ prompt_nvm() {
 ################################################################
 # Segment to display NodeEnv
 prompt_nodeenv() {
-  local nodeenv_path="$NODE_VIRTUAL_ENV"
-  if [[ -n "$nodeenv_path" && "$NODE_VIRTUAL_ENV_DISABLE_PROMPT" != true ]]; then
-    local info="$(node -v)[$(basename "$nodeenv_path")]"
+  if [[ -n "$NODE_VIRTUAL_ENV" ]]; then
+    local info="$(node -v)[${NODE_VIRTUAL_ENV:t}]"
     "$1_prompt_segment" "$0" "$2" "black" "green" "$info" 'NODE_ICON'
   fi
 }
@@ -1286,14 +1267,6 @@ prompt_ram() {
 
   "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "$(printSizeHumanReadable "$ramfree" $base)" 'RAM_ICON'
 }
-
-################################################################
-# Segment to display java information
-prompt_java() {
-  local version="$(java -version  2>&1 | head -n 1 |  sed 's/^.*\"\(.*\)\".*$/\1/g')"
-  "$1_prompt_segment" "$0" "$2" "yellow" "$DEFAULT_COLOR" "\uE256${version}" ''
-}
-
 
 ################################################################
 # Segment to display rbenv information
@@ -1373,10 +1346,12 @@ prompt_rspec_stats() {
 ################################################################
 # Segment to display Ruby Version Manager information
 prompt_rvm() {
-  local version_and_gemset=${rvm_env_string/ruby-}
+  if [ $commands[rvm-prompt] ]; then
+    local version_and_gemset=${$(rvm-prompt v p)/ruby-}
 
-  if [[ -n "$version_and_gemset" ]]; then
-    "$1_prompt_segment" "$0" "$2" "grey35" "$DEFAULT_COLOR" "$version_and_gemset" 'RUBY_ICON'
+    if [[ -n "$version_and_gemset" ]]; then
+      "$1_prompt_segment" "$0" "$2" "240" "$DEFAULT_COLOR" "$version_and_gemset" 'RUBY_ICON'
+    fi
   fi
 }
 
@@ -1656,9 +1631,11 @@ prompt_vi_mode() {
 # https://virtualenv.pypa.io/en/latest/
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
-  if [[ -n "$virtualenv_path" && -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]]; then
-    "$1_prompt_segment" "$0" "$2" "blue" "$DEFAULT_COLOR" "$(basename "$virtualenv_path")" 'PYTHON_ICON'
-  fi
+
+  # Early exit; $virtualenv_path must always be set.
+  [[ -z "$virtualenv_path" ]] && return
+
+  "$1_prompt_segment" "$0" "$2" "blue" "$DEFAULT_COLOR" "${virtualenv_path:t}" 'PYTHON_ICON'
 }
 
 ################################################################
@@ -1766,7 +1743,7 @@ prompt_java_version() {
   java_version=$(java -version 2>/dev/null && java -fullversion 2>&1 | cut -d '"' -f 2)
 
   if [[ -n "$java_version" ]]; then
-    "$1_prompt_segment" "$0" "$2" "red" "white" "$java_version" "JAVA_ICON"
+    "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "white" "$java_version" "JAVA_ICON"
   fi
 }
 

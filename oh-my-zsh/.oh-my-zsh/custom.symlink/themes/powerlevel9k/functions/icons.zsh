@@ -29,7 +29,7 @@ case $POWERLEVEL9K_MODE in
       CARRIAGE_RETURN_ICON           $'\u21B5'              # ↵
       ROOT_ICON                      $'\uE801'              # 
       SUDO_ICON                      $'\uF09C'              # 
-      RUBY_ICON                      $'\uE847'              # 
+      RUBY_ICON                      $'\uE847 '             # 
       AWS_ICON                       $'\uE895'              # 
       AWS_EB_ICON                    $'\U1F331 '            # 🌱
       BACKGROUND_JOBS_ICON           $'\uE82F '             # 
@@ -129,7 +129,7 @@ case $POWERLEVEL9K_MODE in
       CARRIAGE_RETURN_ICON           $'\u21B5'              # ↵
       ROOT_ICON                      $'\uF201'              # 
       SUDO_ICON                      $'\uF09C'              # 
-      RUBY_ICON                      $'\uF219'              # 
+      RUBY_ICON                      $'\uF219 '             # 
       AWS_ICON                       $'\uF270'              # 
       AWS_EB_ICON                    $'\U1F331 '            # 🌱
       BACKGROUND_JOBS_ICON           $'\uF013 '             # 
@@ -234,7 +234,7 @@ case $POWERLEVEL9K_MODE in
       CARRIAGE_RETURN_ICON           $'\u21B5'                                      # ↵
       ROOT_ICON                      '\u'$CODEPOINT_OF_OCTICONS_ZAP                 # 
       SUDO_ICON                      '\u'$CODEPOINT_OF_AWESOME_UNLOCK               # 
-      RUBY_ICON                      '\u'$CODEPOINT_OF_OCTICONS_RUBY                # 
+      RUBY_ICON                      '\u'$CODEPOINT_OF_OCTICONS_RUBY' '             # 
       AWS_ICON                       '\u'$CODEPOINT_OF_AWESOME_SERVER               # 
       AWS_EB_ICON                    $'\U1F331 '                                    # 🌱
       BACKGROUND_JOBS_ICON           '\u'$CODEPOINT_OF_AWESOME_COG' '               # 
@@ -327,7 +327,7 @@ case $POWERLEVEL9K_MODE in
       CARRIAGE_RETURN_ICON           $'\u21B5'              # ↵
       ROOT_ICON                      $'\uE614 '             # 
       SUDO_ICON                      $'\uF09C'              # 
-      RUBY_ICON                      $'\uF219'              # 
+      RUBY_ICON                      $'\uF219 '             # 
       AWS_ICON                       $'\uF270'              # 
       AWS_EB_ICON                    $'\UF1BD  '            # 
       BACKGROUND_JOBS_ICON           $'\uF013 '             # 
@@ -338,7 +338,7 @@ case $POWERLEVEL9K_MODE in
       OK_ICON                        $'\uF00C'              # 
       FAIL_ICON                      $'\uF00D'              # 
       SYMFONY_ICON                   $'\uE757'              # 
-      NODE_ICON                      $'\uE617'              # 
+      NODE_ICON                      $'\uE617 '             # 
       MULTILINE_FIRST_PROMPT_PREFIX  $'\u256D'$'\U2500'     # ╭─
       MULTILINE_NEWLINE_PROMPT_PREFIX  $'\u251C'$'\U2500'   # ├─
       MULTILINE_LAST_PROMPT_PREFIX   $'\u2570'$'\U2500 '    # ╰─

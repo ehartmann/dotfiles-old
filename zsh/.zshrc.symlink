@@ -20,8 +20,8 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_RBENV_BACKGROUND="235"
 POWERLEVEL9K_RBENV_FOREGROUND="246"
 
-POWERLEVEL9K_JAVA_BACKGROUND="235"
-POWERLEVEL9K_JAVA_FOREGROUND="246"
+POWERLEVEL9K_JAVA_VERSION_BACKGROUND="235"
+POWERLEVEL9K_JAVA_VERSION_FOREGROUND="246"
 
 POWERLEVEL9K_NODE_VERSION_BACKGROUND="235"
 POWERLEVEL9K_NODE_VERSION_FOREGROUND="246"
@@ -63,7 +63,7 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='088'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='250'
 
 POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined aws java rbenv_joined node_version_joined vcs newline dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined aws virtualenv java_version rbenv_joined node_version_joined vcs newline dir)
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined vcs ip public_ip_joined java rbenv_joined node_version_joined newline dir dir_writable_joined)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -161,6 +161,7 @@ plugins=(
   tmux
   tmuxinator
   vagrant-prompt
+  virtualenv
   wd
   zsh-autosuggestions
   zsh-completions
@@ -224,7 +225,6 @@ export GOPATH=$HOME/go
 export PATH=$HOME/.rbenv/bin:$HOME/.cargo/bin:$HOME/bin/:$HOME/.local/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$ANT_HOME/bin:/opt/eric/go/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH:/usr/local/bin:$GOPATH/bin:/opt/eric/sonar-scanner/bin/:$PATH
 export SONARQUBE_USER_PATCHES_HOME=$HOME/Projects/eric/patches
 export PROJECT_PATHS=(~/Projects/sonarsource ~/Projects/eric ~/Projects/za ~/Projects/servebox)
-#export QT_AUTOSCREEN_SCALE_FACTOR=0
 
 if [[ "$platform" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
