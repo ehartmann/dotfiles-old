@@ -90,3 +90,5 @@
 	#%P
 [advice]
 	detachedHead = false
+[fetch]
+	prune = true
