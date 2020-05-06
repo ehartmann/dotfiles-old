@@ -142,6 +142,7 @@ plugins=(
   pip
   pipenv
   pj
+  poetry
   pylint
   python
   rails
