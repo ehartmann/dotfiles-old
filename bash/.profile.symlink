@@ -21,8 +21,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$HOME/bin/linux:$PATH"
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="/home/eric/.sdkman"
-#[[ -s "/home/eric/.sdkman/bin/sdkman-init.sh" ]] && source "/home/eric/.sdkman/bin/sdkman-init.sh"
-
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# KDE is setting those variables if screen is scale >= 200%
+unset GDK_SCALE
+unset GDK_DPI_SCALE
