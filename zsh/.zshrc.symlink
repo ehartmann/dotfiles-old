@@ -288,6 +288,7 @@ if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then source '${HOME}/go
 
 [[ -s "$HOME/.zshrc_credentials" ]] && source $HOME/.zshrc_credentials
 
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/eric/bin/linux/vault vault
 
