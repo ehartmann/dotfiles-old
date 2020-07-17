@@ -120,6 +120,7 @@ plugins=(
   example
   fasd
   gb
+  gh
   git
   git-extras
   git-flow
@@ -161,6 +162,7 @@ plugins=(
   tig
   tmux
   tmuxinator
+  vagrant
   vagrant-prompt
   virtualenv
   wd
