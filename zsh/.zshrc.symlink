@@ -191,6 +191,7 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 autoload -Uz vcs_info
+autoload zmv
 zstyle ':vcs_info:*' enable hg git bzr svn
 zstyle ':vcs_info:hg*:*' check-for-changes true
 #zstyle ':vcs_info:hg*:netbeans' use-simple true
