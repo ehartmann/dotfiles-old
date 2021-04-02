@@ -188,7 +188,7 @@ unalias gops
 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
+if [ $TERMINIX_ID ] || [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
