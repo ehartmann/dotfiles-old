@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh configuration.
@@ -66,44 +73,8 @@ POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined aws virtualenv java_version rbenv_joined node_version_joined vcs newline dir)
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context_joined vcs ip public_ip_joined java rbenv_joined node_version_joined newline dir dir_writable_joined)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs battery time)
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="false"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment following line if you want to  shown in the command execution time stamp
-# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
-# yyyy-mm-dd
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# gitfast ?
 plugins=(
   ant
   autopep8
@@ -173,27 +144,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-autoload -Uz vcs_info
-autoload zmv
-zstyle ':vcs_info:*' enable hg git bzr svn
-zstyle ':vcs_info:hg*:*' check-for-changes true
+#autoload -Uz vcs_info
+#autoload zmv
+#zstyle ':vcs_info:*' enable hg git bzr svn
+#zstyle ':vcs_info:hg*:*' check-for-changes true
 #zstyle ':vcs_info:hg*:netbeans' use-simple true
 #zstyle ':vcs_info:hg*' actionformats "(%s|%a)[%i%u %b %m]"
 
@@ -273,6 +227,10 @@ function apt-history() {
             ;;
     esac
 }
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #compdef ap=_ansible-playbook
 #compdef _ansible-vault av=ansible-vault

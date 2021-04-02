@@ -7,3 +7,6 @@
 [submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-completions"]
 	path = oh-my-zsh/.oh-my-zsh/custom.symlink/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
+[submodule "oh-my-zsh/.oh-my-zsh/custom.symlink/themes/powerlevel10k"]
+	path = oh-my-zsh/.oh-my-zsh/custom.symlink/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k
