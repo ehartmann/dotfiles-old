@@ -6,6 +6,17 @@
 	autocrlf = input
 	safecrlf = true
 	excludesfile = /home/eric/.gitignore_global
+	pager = delta
+
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+
+[interactive]
+    diffFilter = delta --color-only
+
 [github]
 	user = ehartmann
 	email = hartmann.eric@gmail.com
