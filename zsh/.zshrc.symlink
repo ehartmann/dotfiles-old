@@ -36,6 +36,7 @@ plugins=(
   gitfast
   github
   gitignore
+  glab
   golang
   gradle
   history
