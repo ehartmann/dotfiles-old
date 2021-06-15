@@ -49,6 +49,7 @@ plugins=(
   node
   nomad
   npm
+  nvm
   pip
   pipenv
   pj
@@ -212,3 +213,8 @@ source '/home/eric/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/home/eric/google-cloud-sdk/completion.zsh.inc'
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+
+source $NVM_DIR/nvm.sh
