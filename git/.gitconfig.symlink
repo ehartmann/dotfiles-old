@@ -44,7 +44,7 @@
 	merc = merge --no-ff
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 	webui = !/home/eric/Projects/eric/git-webui/release/libexec/git-core/git-webui
-        fixup2 = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+  	fixup = !SHA=$(git log -n 50 --color=always --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --no-merges | fzf --ansi --multi --no-sort | cut -c -7) && echo $SHA && git commit --fixup $SHA && git rebase -i --autosquash $SHA~
 	serve = daemon --reuseaddr --base-path=.git --export-all --verbose --strict-paths --listen=192.168.1.30 .git/
 	serve-with-push = daemon --reuseaddr --base-path=.git --export-all --verbose --strict-paths --enable=receive-pack .git/
 
