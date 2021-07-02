@@ -47,6 +47,11 @@
   	fixup = !SHA=$(git log -n 50 --color=always --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --no-merges | fzf --ansi --multi --no-sort | cut -c -7) && echo $SHA && git commit --fixup $SHA && git rebase -i --autosquash $SHA~
 	serve = daemon --reuseaddr --base-path=.git --export-all --verbose --strict-paths --listen=192.168.1.30 .git/
 	serve-with-push = daemon --reuseaddr --base-path=.git --export-all --verbose --strict-paths --enable=receive-pack .git/
+	state='git fetch --prune ; git fetch --tags ; clear && git branch -vv && git status'
+	rebasebr = "!f() { br=${1}; git fetch origin ${br} && git rebase origin/${br}; }; f"
+	currentbr = "!f() { git branch | grep \\* | cut -d \" \" -f2; }; f"
+	rebaseonto = "!f() { git rebase --onto $1 $2 $(git currentbr); }; f"
+	amend = !git add -A && git commit -a --amend --no-edit
 
 [push]
 	default = current
@@ -59,6 +64,7 @@
 	rebase = preserve
 [rebase]
 	autosquash = true
+	autoStash = true
 [merge]
 	renameLimit = 10000
 [hub]
