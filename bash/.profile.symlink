@@ -21,10 +21,13 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$HOME/bin/linux:$PATH"
 fi
 
-export PATH="$HOME/.poetry/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+eval "$(pyenv init --path)"
+
+export PATH="$HOME/.poetry/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
 
 # KDE is setting those variables if screen is scale >= 200%
 unset GDK_SCALE
 unset GDK_DPI_SCALE
 
-export PATH="$HOME/.cargo/bin:$PATH"
