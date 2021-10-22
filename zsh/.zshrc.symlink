@@ -116,7 +116,6 @@ export AWS_SDK_LOAD_CONFIG=1
 export MAVEN_OPTS="-Xmx784M -Xms128M"
 export GRADLE_OPTS="-Xmx784M -Xms128M"
 export GRADLE_USER_HOME="$HOME/.gradle"
-export PYENV_ROOT="$HOME/.pyenv"
 #export MAVEN_DEBUG_OPTS="-Xmx784M -Xms128M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000"
 export NODE_PATH=/opt/eric/npm
 export ù=$HOME/Projects
@@ -193,7 +192,7 @@ unalias gops
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 if [ $TERMINIX_ID ] || [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  source /etc/profile.d/vte.sh
+  source /etc/profile.d/vte-2.91.sh
 fi
 
 eval "$(rbenv init -)"

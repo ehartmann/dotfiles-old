@@ -23,9 +23,8 @@ fi
 
 
 export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init --path)"
-
 export PATH="$HOME/.poetry/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # KDE is setting those variables if screen is scale >= 200%
 unset GDK_SCALE
