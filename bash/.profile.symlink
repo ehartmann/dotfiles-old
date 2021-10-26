@@ -22,6 +22,8 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 
+export QT_QPA_PLATFORM=wayland
+export MOZ_ENABLE_WAYLAND=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.poetry/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
 eval "$(pyenv init --path)"
