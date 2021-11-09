@@ -1,5 +1,5 @@
-export QT_QPA_PLATFORM=wayland
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM=gtk2
+#export QT_AUTO_SCREEN_SCALE_FACTOR=1
 #export QT_QPA_PLATFORMTHEME=qt5ct
 # Needed for Firefox to use VA-API
 export MOZ_WAYLAND_DRM_DEVICE=/dev/dri/renderD128
