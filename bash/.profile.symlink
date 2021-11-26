@@ -22,9 +22,9 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 
-export QT_QPA_PLATFORM=qt5ct
+#export QT_QPA_PLATFORM=qt5ct
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1
-#export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt5ct
 # Needed for Firefox to use VA-API
 export MOZ_WAYLAND_DRM_DEVICE=/dev/dri/renderD128
 export MOZ_ENABLE_WAYLAND=1
@@ -37,3 +37,5 @@ eval "$(pyenv init --path)"
 #unset GDK_SCALE
 #unset GDK_DPI_SCALE
 
+
+export PATH="$HOME/.poetry/bin:$PATH"

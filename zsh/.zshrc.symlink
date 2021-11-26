@@ -220,3 +220,5 @@ source '/home/eric/google-cloud-sdk/completion.zsh.inc'
 export NVM_DIR="$HOME/.nvm"
 
 source $NVM_DIR/nvm.sh
+
+export PATH="$HOME/.poetry/bin:$PATH"
