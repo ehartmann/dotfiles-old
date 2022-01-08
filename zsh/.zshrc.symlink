@@ -18,7 +18,6 @@ plugins=(
   aws
   bower
   brew
-  cargo
   command-not-found
   common-aliases
   docker
