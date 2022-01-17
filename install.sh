@@ -27,7 +27,6 @@ fi
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-update" ] && git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-whatis" ] && git clone https://github.com/rkh/rbenv-whatis.git ~/.rbenv/plugins/rbenv-whatis
 [ ! -d "${HOME}/.rbenv/plugins/rbenv-update-rubies" ] && git clone https://github.com/toy/rbenv-update-rubies.git  ~/.rbenv/plugins/rbenv-update-rubies
-[ ! -d "${HOME}/google-cloud-sdk" ] && curl https://sdk.cloud.google.com | bash
 
 cat > ~/.rbenv/default-gems << "EOF"
 bundler
