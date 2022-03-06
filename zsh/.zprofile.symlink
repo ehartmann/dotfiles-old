@@ -4,6 +4,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # Needed for Firefox to use VA-API
 export MOZ_WAYLAND_DRM_DEVICE=/dev/dri/renderD128
 export MOZ_ENABLE_WAYLAND=1
+export FONTCONFIG_PATH=/etc/fonts
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
