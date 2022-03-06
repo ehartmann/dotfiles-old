@@ -2,7 +2,12 @@
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_QPA_PLATFORMTHEME=qt5ct
 # Needed for Firefox to use VA-API
-export MOZ_WAYLAND_DRM_DEVICE=/dev/dri/renderD128
+if [[ `hostname` == 'bilbo' ]]
+then
+   export MOZ_WAYLAND_DRM_DEVICE=/dev/dri/renderD129
+else
+   export MOZ_WAYLAND_DRM_DEVICE=/dev/dri/renderD128
+fi
 export MOZ_ENABLE_WAYLAND=1
 export FONTCONFIG_PATH=/etc/fonts
 
