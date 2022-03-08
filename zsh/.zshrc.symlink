@@ -207,7 +207,7 @@ export SDKMAN_DIR="${HOME}/.sdkman"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/eric/bin/linux/vault vault
 
-source /home/eric/.config/broot/launcher/bash/br
+[[ -s "$HOME/.config/broot/launcher/bash/br" ]] && source "${HOME}/.config/broot/launcher/bash/br"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
