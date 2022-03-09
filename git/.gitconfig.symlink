@@ -1,7 +1,7 @@
 [user]
 	name = Eric Hartmann
 	email = 112486+ehartmann@users.noreply.github.com
-	signingkey = CAA81E66
+	signingkey = 4D0A40C463F1E9CCE2883857C13DD1DA99F70F9D
 [core]
 	autocrlf = input
 	safecrlf = true
@@ -89,25 +89,6 @@
 [absorb]
 	maxStack = 50
 
-[diff "sops"]
-	textconv = $HOME/bin/merge-secrets sops-textconv
-	# Do not cache the vault contents
-	cachetextconv = false
-
-[merge "sops"]
-	name = sops merge driver
-	driver = $HOME/bin/merge-secrets sops-merge %O %A %B 
-	#%P
-
-[diff "ansible-vault"]
-	textconv = $HOME/bin/merge-secrets vault-textconv
-	# Do not cache the vault contents
-	cachetextconv = false
-
-[merge "ansible-vault"]
-	name = ansible-vault merge driver
-	driver = $HOME/bin/merge-secrets vault-merge %O %A %B 
-	#%P
 [advice]
 	detachedHead = false
 [fetch]
