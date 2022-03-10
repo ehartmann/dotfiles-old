@@ -7,6 +7,7 @@
 	safecrlf = true
 	excludesfile = /home/eric/.gitignore_global
 	pager = delta
+	editor = vim
 
 [delta]
     plus-style = "syntax #012800"
