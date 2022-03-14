@@ -5,7 +5,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
-	excludesfile = /home/eric/.gitignore_global
+	excludesfile = /Users/eric.hartmann/.gitignore_global
 	pager = delta
 	editor = vim
 
@@ -94,3 +94,9 @@
 	detachedHead = false
 [fetch]
 	prune = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
