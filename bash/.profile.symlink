@@ -1,9 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init bash pre)"
-
-
-
+eval "$(command -v fig && fig init bash pre)"
 
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
@@ -58,4 +55,4 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 
 # Fig post block. Keep at the bottom of this file.
-eval "$(fig init bash post)"
+eval "$(command -v fig && fig init bash post)"
