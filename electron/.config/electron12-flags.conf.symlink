@@ -1,1 +1,2 @@
-electron-flags.conf.symlink
+--enable-features=UseOzonePlatform
+--ozone-platform=wayland
