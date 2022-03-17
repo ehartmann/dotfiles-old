@@ -193,6 +193,42 @@ unalias cp
 unalias gradle
 unalias gops
 
+### DOCTOLIB ####
+export AWS_SDK_LOAD_CONFIG=true # Requirement for terraform and some other Go tools
+export KUBE_REPOSITORY_PATH=$HOME/Projects/doctolib/kube
+
+function kube_env_setup {
+     export KUBECONFIG="$KUBE_REPOSITORY_PATH/setup/k8senv/$1/config"
+     export AWS_PROFILE="$1"
+}
+
+alias kubedev_aws_de_fra_1='kube_env_setup dev-aws-de-fra-1'
+alias kubedev_aws_fr_par_1='kube_env_setup dev-aws-fr-par-1'
+alias kubedev_aws_global='kube_env_setup dev-aws-global'
+alias kubestaging='kube_env_setup staging'
+alias kubestaging_aws_global='kube_env_setup staging-aws-global'
+alias kubestaging_aws_fr_par_1='kube_env_setup staging-aws-fr-par-1'
+alias kubeinterf='kube_env_setup interf'
+alias kubeinterf_aws_global='kube_env_setup interf-aws-global'
+alias kubepreprod='kube_env_setup preprod'
+alias kubepreprod_aws_global='kube_env_setup preprod-aws-global'
+alias kubeshared='kube_env_setup shared'
+alias kubetooling='kube_env_setup tooling'
+alias kubetooling_aws_west_1='kube_env_setup tooling-aws-eu-west-1'
+alias kubeprd_aws_de_fra_1='kube_env_setup prd-aws-de-fra-1'
+alias kubeprd_aws_fr_par_1='kube_env_setup prd-aws-fr-par-1'
+alias kubeprd_aws_global='kube_env_setup prd-aws-global'
+alias kubetesting='kube_env_setup testing'
+alias kubesecurity_aws_global='kube_env_setup security-aws-global'
+alias kubedata_prod='kube_env_setup data-production'
+alias kubedata_staging='kube_env_setup data-staging'
+alias kubecorp_it='kube_env_setup corp-it'
+alias kubemaster_account='kube_env_setup master-account'
+alias kubedoctolib_legacy='kube_env_setup doctolib-legacy'
+alias kubetransit='kube_env_setup transit'
+alias kubelogout='aws-vault clear && unset AWS_PROFILE'
+
+
 # Store credentials there
 [[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"
 
