@@ -11,6 +11,9 @@ fi
 
 export TERM="xterm-256color"
 export GPG_TTY=$(tty)
+if [[ $OSTYPE == 'linux'* ]]; then 
+   export SSH_ASKPASS='/usr/bin/ksshaskpass'
+fi   
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
