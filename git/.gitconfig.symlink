@@ -2,12 +2,13 @@
 	name = Eric Hartmann
 	email = 112486+ehartmann@users.noreply.github.com
 	signingkey = 4D0A40C463F1E9CCE2883857C13DD1DA99F70F9D
+
 [core]
 	autocrlf = input
 	safecrlf = true
-	excludesfile = /Users/eric.hartmann/.gitignore_global
 	pager = delta
 	editor = vim
+	excludesfile = ~/.config/git/ignore
 
 [delta]
     plus-style = "syntax #012800"
