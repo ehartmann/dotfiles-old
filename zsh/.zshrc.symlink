@@ -9,6 +9,8 @@ export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 if [[ $OSTYPE == 'linux'* ]]; then 
    export SSH_ASKPASS='/usr/bin/ksshaskpass'
+   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+   #export GIT_ASKPASS='/usr/bin/ksshaskpass'
 fi   
 
 # Path to your oh-my-zsh configuration.
@@ -49,6 +51,7 @@ plugins=(
   kitchen
   kubectl
   kubectx
+  kube-ps1
   mercurial
   minikube
   mvn
@@ -178,8 +181,6 @@ function apt-history() {
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export GIT_ASKPASS='/usr/bin/ksshaskpass'
 #compdef ap=_ansible-playbook
 #compdef _ansible-vault av=ansible-vault
 
