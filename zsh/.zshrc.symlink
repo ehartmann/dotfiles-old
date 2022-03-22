@@ -198,6 +198,9 @@ unalias gops
 ### DOCTOLIB ####
 export AWS_SDK_LOAD_CONFIG=true # Requirement for terraform and some other Go tools
 export KUBE_REPOSITORY_PATH=$HOME/Projects/doctolib/kube
+if [[ $OSTYPE == 'linux'* ]]; then
+  export AWS_VAULT_BACKEND=kwallet
+fi  
 
 function kube_env_setup {
      export KUBECONFIG="$KUBE_REPOSITORY_PATH/setup/k8senv/$1/config"
