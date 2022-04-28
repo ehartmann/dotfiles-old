@@ -19,6 +19,3 @@ export FONTCONFIG_PATH=/etc/fonts
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
 eval "$(pyenv init --path)"
-
-# Fig post block. Keep at the bottom of this file.
-eval "$(command -v fig && fig init zsh post)"
