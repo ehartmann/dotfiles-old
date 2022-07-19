@@ -58,7 +58,6 @@
 [push]
 	default = current
 [help]
-	autocorrect = 25
 	autocorrect = -1
 [branch]
 	autosetuprebase = always
