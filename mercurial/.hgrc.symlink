@@ -96,6 +96,9 @@ tab_size = 4
 # to examine only modified lines from check_hook (no effect on fixup_hook or command), use:
 # check_diffs = True
 
+[fsmonitor]
+mode = on
+
 [merge-tools]
 dw.executable = /Applications/DeltaWalker1.app/ContentsMacOS/hg
 dw.args = $local $other $base -merged=$output

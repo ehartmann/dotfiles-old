@@ -10,6 +10,7 @@ export GPG_TTY=$(tty)
 # Slow copy/paste with bracketed paste
 export DISABLE_MAGIC_FUNCTIONS=true 
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=40
+export MOZ_ENABLE_WAYLAND=1
 if [[ $OSTYPE == 'linux'* ]]; then 
    export SSH_ASKPASS='/usr/bin/ksshaskpass'
    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
