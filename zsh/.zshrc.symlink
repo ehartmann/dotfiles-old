@@ -216,6 +216,11 @@ alias kubedoctolib_legacy='kube_env_setup doctolib-legacy'
 alias kubetransit='kube_env_setup transit'
 alias kubelogout='aws-vault clear && unset AWS_PROFILE'
 
+# Atuin
+
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
+bindkey '^r' _atuin_search_widget
 
 # Store credentials there
 [[ -a "$HOME/.zshrc_extra" ]] && source "$HOME/.zshrc_extra"
@@ -236,8 +241,8 @@ export SDKMAN_DIR="${HOME}/.sdkman"
 [[ -s "$HOME/.zshrc_credentials" ]] && source $HOME/.zshrc_credentials
 
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /home/eric/bin/linux/vault vault
+#autoload -U +X bashcompinit && bashcompinit
+#complete -o nospace -C /home/eric/bin/linux/vault vault
 
 [[ -s "$HOME/.config/broot/launcher/bash/br" ]] && source "${HOME}/.config/broot/launcher/bash/br"
 
