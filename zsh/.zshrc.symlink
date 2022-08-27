@@ -36,7 +36,6 @@ plugins=(
   dotenv
   example
   fasd
-  gb
   gh
   git
   git-extras
